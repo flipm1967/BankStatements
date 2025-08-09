@@ -71,6 +71,45 @@ class PieChartWithTable(QWidget):
         cursor.execute(query)
         rows = cursor.fetchall()
 
+        columns = ['id', 'date', 'transaction_type', 'description', amount_col, 'category']
+    
+        # Always recreate the base dataframe fresh from the DB
+        base_df = pd.DataFrame(rows, columns=columns)
+        base_df['category'] = base_df['category'].fillna('Uncategorised')
+
+        print(f"DUMP BASE DATAFRAME")
+        print(f"{base_df}")
+
+        # Keep the original intact and make a working copy
+        self.df = base_df.copy()
+
+        if not self.use_full_category:
+            print(f"[DEBUG] Use MAIN category")
+            self.df['category'] = self.df['category'].apply(lambda c: c.split(';')[0].strip())
+        else:
+            print(f"[DEBUG] Use SUB category")            
+
+        self.grouped = self.df.groupby('category')[amount_col].sum()
+        self.categories = self.grouped.index.tolist()
+        self.sizes = self.grouped.values.tolist()
+        print(f"[DEBUG] Categories after grouping: {self.categories}")
+
+
+
+    def load_data_bad(self):
+        print(f"[DEBUG] Loading data with use_full_category={self.use_full_category}")
+        cursor = self.db_conn.cursor()
+        amount_col = 'paid_out' if self.is_paid_out else 'paid_in'
+
+        query = f'''
+        SELECT t.id, t.date, t.transaction_type, t.description, t.{amount_col}, cg.category
+        FROM transactions t
+        LEFT JOIN categorised cg ON t.id = cg.transaction_id
+        WHERE t.{amount_col} > 0
+        '''
+        cursor.execute(query)
+        rows = cursor.fetchall()
+
         self.df = pd.DataFrame(rows, columns=['id', 'date', 'transaction_type', 'description', amount_col, 'category'])
         self.df['category'] = self.df['category'].fillna('Uncategorised')
 
@@ -103,6 +142,7 @@ class PieChartWithTable(QWidget):
         self.canvas.draw()
 
     def on_pie_click(self, event):
+        print("Pie click")
         # event.artist is the wedge clicked
         wedge = event.artist
         if wedge not in self.wedges:
@@ -168,13 +208,13 @@ class MainWindow(QWidget):
         self.checkbox.stateChanged.connect(self.on_checkbox_change)
 
     def on_checkbox_change(self, state):
-        use_full = (state == Qt.CheckState.Checked)
-        print(f"[DEBUG] Checkbox changed, use_full_category={use_full}")
+        print("checkbox click")
+        use_full = self.checkbox.isChecked()
         self.pie_out.use_full_category = use_full
         self.pie_out.refresh()
 
         # For paid_in pie, always show full category (or adapt if you want)
-        self.pie_in.refresh()
+        #self.pie_in.refresh()
 
 
 def main():
