@@ -1,16 +1,29 @@
 transaction_type_pattern,description_pattern,category
 
-Transfer to,07,Transfers;Nationwide
 
 .*,COSTA COFFEE,EATING OUT;COFFEE
 .*,STARBUCKS,EATING OUT;COFFEE
 .*,CAFE NERO,EATING OUT;COFFEE
+.*,KNOOPS,EATING OUT;COFFEE
 
+.*,KFC,EATING OUT;FAST FOOD
 .*,MCDONALDS,EATING OUT;FAST FOOD
 .*,BURGER KING,EATING OUT;FAST FOOD
 .*,GREGGS,EATING OUT;FAST FOOD
 .*,NEW ERA,EATING OUT;FAST FOOD
 .*,BRIDGE ROAD CAFE,EATING OUT;FAST FOOD
+.*,SALT DELI,EATING OUT;FAST FOOD
+.*,WOK U LIKE,EATING OUT;FAST FOOD
+.*,GOLDEN DRAGON,EATING OUT;FAST FOOD
+.*,Diwali Indian,EATING OUT;FAST FOOD
+.*,GAILS,EATING OUT;FAST FOOD
+
+.*,KARA FLEET,EATING OUT;RESTAURANT
+.*,LOUNGERS BRISTOL,EATING OUT;RESTAURANT
+.*,WILDERKITCHEN,EATING OUT;RESTAURANT
+.*,El Castello,EATING OUT;RESTAURANT
+.*,Bella Capri,EATING OUT;RESTAURANT
+.*,ALENTO lOUNGE,EATING OUT;RESTAURANT
 
 .*,OATSHEAF,EATING OUT;PUB
 .*,PARCEL YARD,EATING OUT;PUB
@@ -20,13 +33,21 @@ Transfer to,07,Transfers;Nationwide
 .*,The Wyvern,EATING OUT;PUB
 .*,WILLIAMS ALE,EATING OUT;PUB
 .*,WWW.BREWDOG.COM,EATING OUT;PUB
-.*,CRAP AND DRAGON,EATING OUT;PUB
+.*,CRAB AND DRAGON,EATING OUT;PUB
+.*,GREYHOUND,EATING OUT;PUB
 
+.*,Netflix,Entertainment;Netflix
+.*,NETFLIX,Entertainment;Netflix
 .*,Amazon Prime,Entertainment;Amazon Prime
 .*,Prime Video,Entertainment;Amazon Prime
 .*,CINEWORLD,Entertainment;Cinema
 .*,ALLWYN,Entertainment;Lottery
 .*,Spotify,Entertainment;Spotify
+.*,Legoland,Entertainment;Spotify
+.*,LONDON THEATRE DIRECT,Entertainment;Spotify
+
+.*,Decathlon,Entertainment;Camping & Festivals
+.*,HARRINGTONS BOTTLED GAS,Entertainment;Camping & Festivals
 
 .*,CAFE RAILS,EATING OUT;COFFEE
 .*,Wasabi_HighStreetKensi London GB,EATING OUT;LUNCH
@@ -38,8 +59,11 @@ Transfer to,07,Transfers;Nationwide
 .*,SWRAILWAYSELFSERVE,Travel;Train
 .*,SWRAILWAY TCK,Travel;Train
 .*,ESSO,Travel;Fuel
-.*,SHELL STATION,Travel;Fuel
+.*,SHELL ,Travel;Fuel
+.*,AMESBURY FILLING,Travel;Fuel
+.*,M6 TOLL,Travel;Tolls
 .*,ALPHA BATTERIES,Travel;Car Repairs
+.*,FOSTER AND HEANES,Travel;Car Repairs
 Contactless Payment,Hart District,Travel;Car Parks
 
 .*,SAINSBURY,FOOD;Sainsbury
@@ -61,10 +85,17 @@ Direct debit,SOUTH EAST WATER,Household;Bills
 Direct debit,NEWCASTLE,Household;Mortgage
 .*,Shurgard,Household;Storage
 .*,SCREWFIX,Household;DIY
+.*,GAPOGROUP,Household;DIY
+.*,RADIATOR WORLD,Household;DIY
+.*,VICTORIAN PLUMBING,Household;DIY
+.*,SELCO,Household;DIY
+.*,B & Q,Household;DIY
+.*,insulation4le,Household;DIY
+.*,INSULATION4LE,Household;DIY
 .*,WICKES,Household;DIY
 .*,PHILIP CARTER,Household;DIY
 .*,PAUL LETTS,Household;DIY
-.*,VODAPHONE,Household;Telephone & Broadband
+.*,VODAFONE,Household;Telephone & Broadband
 .*,HMRC,Household;Tax Payment
 
 
@@ -73,9 +104,13 @@ Direct debit,NEWCASTLE,Household;Mortgage
 .*,BOOTS.*FLEET,Health;Toiletries
 .*,BOOTS.*BRIDGWATER,Health;Toiletries
 .*,SUPERDRUG,Health;Toiletries
+.*,SAVERS HEALTH,Health;Toiletries
 .*,MYDENTIST,Health;Dentist
 .*,CULTBEAUTY,Health;Perfume
 .*,The Fragrance Shop,Health;Perfume
+.*,Rituals Cosmetics,Health;Perfume
+.*,Lush UK,Health;Perfume
+.*,GLL,Health;Gym
 
 .*,HIFML,Savings;Halifax
 .*,ISA-CAR,Savings;Car Savings
@@ -83,6 +118,7 @@ Direct debit,NEWCASTLE,Household;Mortgage
 .*,ISA-EMERGENCY,Savings;Emergency Fund
 
 .*,SAPPHIRE,To Sapphire;With Love
+.*,GSUITE,To Sapphire;Desert workshop
 .*,ALFIE MUMFORD,To Alfie;To Alfie
 .*,DANIEL,To Daniel;To Daniel
 .*,Daniel,To Daniel;To Daniel
@@ -94,6 +130,8 @@ Direct debit,NEWCASTLE,Household;Mortgage
 .*,PARTNERS CAPITAL,Income;Salary
 .*,COMMONWEALTH,Income;Dividend
 .*,Interest added,Income;Interest
-Transfer from,07.*,Transfer;Nationwide
+Transfer to,07,Transfers;Nationwide
+Transfer from,07.*,Transfers;Nationwide
+Payment to,PHILIP MUMFORD,Transfers;Nationwide
 
 
