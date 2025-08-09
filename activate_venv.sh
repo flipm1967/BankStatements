@@ -1,0 +1,5 @@
+echo ""
+echo "Run this (env has not been activated by this script!):"
+echo ""
+echo "source bankenv/bin/activate"
+echo ""
