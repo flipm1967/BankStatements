@@ -1,10 +1,27 @@
 import sqlite3
 import csv
 import re
+import sys
+import os
 from pathlib import Path
 
+# Check if a filename was passed
+if len(sys.argv) < 2:
+    print("Error: Please provide a CSV filename to load.")
+    print("Usage: python load_data.py your_file.csv")
+    sys.exit(1)
+
+csv_filename = sys.argv[1]
+
+# Optional: validate the file exists
+if not os.path.exists(csv_filename):
+    print(f"Error: File '{csv_filename}' does not exist.")
+    sys.exit(1)
+
+print(f"Loading data from: {csv_filename}")
+
 # === CONFIG ===
-CSV_FILE = '../DATA/StatementDownload20240808-20250808.csv' 
+csv_filename = '../DATA/StatementDownload20240808-20250808.csv' 
 DB_FILE = 'load_statement.db'
 
 # === SETUP DATABASE ===
@@ -51,7 +68,7 @@ CREATE TABLE categorised (
 ''')
 
 # === IMPORT CSV TO TRANSACTIONS ===
-with open(CSV_FILE, newline='', encoding='utf-8') as csvfile:
+with open(csv_filename, newline='', encoding='utf-8') as csvfile:
     reader = csv.DictReader(csvfile)
     for row in reader:
         cursor.execute('''

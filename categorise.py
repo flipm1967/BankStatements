@@ -1,10 +1,27 @@
 import sqlite3
 import csv
 import re
+import sys
+import os
+
+# Check if a filename was passed
+if len(sys.argv) < 2:
+    print("Error: Please provide a category filename to load.")
+    print("Usage: python categorise.py your_file.csv")
+    sys.exit(1)
+
+csv_filename = sys.argv[1]
+
+# Optional: validate the file exists
+if not os.path.exists(csv_filename):
+    print(f"Error: File '{csv_filename}' does not exist.")
+    sys.exit(1)
+
+print(f"📂 Loading data from: {csv_filename}")
+
 
 # === CONFIG ===
 DB_FILE = 'load_statement.db'
-CATEGORIES_CSV = '../DATA/new_categories.csv'
 TRUNCATE_CATEGORIES = True  # Set to True to clear old categories first
 DEBUG=False
 
@@ -18,7 +35,7 @@ if TRUNCATE_CATEGORIES:
     cursor.execute("DELETE FROM categories")
 
 # === LOAD NEW CATEGORIES CSV ===
-with open(CATEGORIES_CSV, newline='', encoding='utf-8') as csvfile:
+with open(csv_filename, newline='', encoding='utf-8') as csvfile:
     reader = csv.DictReader(csvfile)
     for row in reader:
         cursor.execute('''

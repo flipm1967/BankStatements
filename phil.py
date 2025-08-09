@@ -75,10 +75,7 @@ class PieChartWithTable(QWidget):
         self.df['category'] = self.df['category'].fillna('Uncategorised')
 
         if not self.use_full_category:
-            print(f"[DEBUG] Use MAIN category")
             self.df['category'] = self.df['category'].apply(lambda c: c.split(';')[0].strip())
-        else:
-            print(f"[DEBUG] Use SUB category")            
 
         self.grouped = self.df.groupby('category')[amount_col].sum()
         self.categories = self.grouped.index.tolist()
