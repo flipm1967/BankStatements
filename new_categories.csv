@@ -1,0 +1,5 @@
+transaction_type_pattern,description_pattern,category
+.*,COSTA COFFEE.*,EATING OUT;COFFEE
+.*,MCDONALDS.*,EATING OUT;FAST FOOD
+.*,.*CAFE RAILS,EATING OUT;COFFEE
+.*,Wasabi_HighStreetKensi London GB,EATING OUT;LUNCH
