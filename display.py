@@ -60,6 +60,7 @@ class PieChartWithTable(QWidget):
         self.category_table.setSelectionBehavior(QTableWidget.SelectionBehavior.SelectRows)
         self.category_table.setSelectionMode(QTableWidget.SelectionMode.SingleSelection)
         self.category_table.horizontalHeader().setSectionResizeMode(QHeaderView.ResizeMode.ResizeToContents)
+        self.category_table.setSortingEnabled(True)
         chart_table_layout.addWidget(self.category_table, 2)
 
         layout.addLayout(chart_table_layout)

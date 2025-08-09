@@ -1,41 +1,99 @@
 transaction_type_pattern,description_pattern,category
+
+Transfer to,07,Transfers;Nationwide
+
 .*,COSTA COFFEE,EATING OUT;COFFEE
+.*,STARBUCKS,EATING OUT;COFFEE
+.*,CAFE NERO,EATING OUT;COFFEE
+
 .*,MCDONALDS,EATING OUT;FAST FOOD
 .*,BURGER KING,EATING OUT;FAST FOOD
 .*,GREGGS,EATING OUT;FAST FOOD
+.*,NEW ERA,EATING OUT;FAST FOOD
+.*,BRIDGE ROAD CAFE,EATING OUT;FAST FOOD
+
+.*,OATSHEAF,EATING OUT;PUB
+.*,PARCEL YARD,EATING OUT;PUB
+.*,PRINCE OF WALES,EATING OUT;PUB
+.*,QUEENS ARMS,EATING OUT;PUB
+.*,THE QUEEN HOTEL,EATING OUT;PUB
+.*,The Wyvern,EATING OUT;PUB
+.*,WILLIAMS ALE,EATING OUT;PUB
+.*,WWW.BREWDOG.COM,EATING OUT;PUB
+.*,CRAP AND DRAGON,EATING OUT;PUB
+
+.*,Amazon Prime,Entertainment;Amazon Prime
+.*,Prime Video,Entertainment;Amazon Prime
+.*,CINEWORLD,Entertainment;Cinema
+.*,ALLWYN,Entertainment;Lottery
+.*,Spotify,Entertainment;Spotify
+
 .*,CAFE RAILS,EATING OUT;COFFEE
 .*,Wasabi_HighStreetKensi London GB,EATING OUT;LUNCH
 .*,WASABI,EATING OUT;LUNCH
 .*,WHOLE FOODS MARKET.*,EATING OUT;LUNCH
+.*,PORTLANDS 247.*,EATING OUT;LUNCH
 
+.*,TFL TRAVEL,Travel;Tube
+.*,SWRAILWAYSELFSERVE,Travel;Train
 .*,SWRAILWAY TCK,Travel;Train
 .*,ESSO,Travel;Fuel
 .*,SHELL STATION,Travel;Fuel
+.*,ALPHA BATTERIES,Travel;Car Repairs
 Contactless Payment,Hart District,Travel;Car Parks
 
-.*,SAINSBURY'S,FOOD
-.*,WAITROSE,FOOD
-.*,WM MORRISONS,FOOD
-.*,ASDA STORES,FOOD
-.*,TESCO,FOOD
-.*,Nisa Local,FOOD
-
+.*,SAINSBURY,FOOD;Sainsbury
+.*,WAITROSE,FOOD;Waitrose
+.*,WM MORRISONS,FOOD;Morrison
+.*,ASDA STORES,FOOD;ASDA
+.*,TESCO,FOOD;TESCO
+.*,Nisa Local,FOOD;Nisa
+.*,CO-OP,FOOD;Coop
 
 .*,eBay,Household;ebay
 .*,AMAZON,Household;Amazon
 Direct debit,D&G,Household;Insurance
 Direct debit,LV LIFE,Household;Insurance
+Direct debit,HART D C,Household;Bills
 Direct debit,OCTOPUS,Household;Bills
 Direct debit,SOUTH EAST WATER,Household;Bills
 Direct debit,SOUTH EAST WATER,Household;Bills
 Direct debit,NEWCASTLE,Household;Mortgage
-.*,Amazon Prime,Entertainment;Amazon Prime
-.*,CINEWORLD,Entertainment;Cinema
+.*,Shurgard,Household;Storage
+.*,SCREWFIX,Household;DIY
+.*,WICKES,Household;DIY
+.*,PHILIP CARTER,Household;DIY
+.*,PAUL LETTS,Household;DIY
+.*,VODAPHONE,Household;Telephone & Broadband
+.*,HMRC,Household;Tax Payment
 
+
+.*,BOOTS OPTICIANS,Health;Contact Lenses
 .*,BOOTS REWARDSCHEME,Health;Contact Lenses
+.*,BOOTS.*FLEET,Health;Toiletries
+.*,BOOTS.*BRIDGWATER,Health;Toiletries
+.*,SUPERDRUG,Health;Toiletries
 .*,MYDENTIST,Health;Dentist
+.*,CULTBEAUTY,Health;Perfume
+.*,The Fragrance Shop,Health;Perfume
 
 .*,HIFML,Savings;Halifax
+.*,ISA-CAR,Savings;Car Savings
+.*,Flex REGULAR,Savings;Emergency Fund
+.*,ISA-EMERGENCY,Savings;Emergency Fund
 
+.*,SAPPHIRE,To Sapphire;With Love
+.*,ALFIE MUMFORD,To Alfie;To Alfie
+.*,DANIEL,To Daniel;To Daniel
+.*,Daniel,To Daniel;To Daniel
+
+.*,ANGELA HUXTER,Mum Carers;Angela
+.*,Heather Mills,Mum Carers;Heather
+
+.*,Cheque deposit,Cheque;Mum Carer
+.*,PARTNERS CAPITAL,Income;Salary
+.*,COMMONWEALTH,Income;Dividend
+.*,Interest added,Income;Interest
+Transfer from,07.*,Transfer;Nationwide
 
 
