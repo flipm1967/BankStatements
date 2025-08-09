@@ -1,0 +1,7 @@
+python3 load_statement.py ../DATA/StatementDownload20240808-20250808.csv
+python3 categorise.py new_categories.csv
+python3 display.py &
+
+
+
+

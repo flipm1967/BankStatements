@@ -3,13 +3,15 @@ import sqlite3
 import pandas as pd
 from PyQt6.QtWidgets import (
     QApplication, QWidget, QVBoxLayout, QHBoxLayout, QTableWidget,
-    QTableWidgetItem, QCheckBox, QLabel, QSizePolicy, QAbstractItemView
+    QTableWidgetItem, QCheckBox, QLabel, QSizePolicy, QRadioButton, QButtonGroup,
+    QHeaderView, QSplitter
 )
 from PyQt6.QtCore import Qt
 from matplotlib.backends.backend_qtagg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.figure import Figure
 
 DB_FILE = 'load_statement.db'
+
 
 class PieChartWithTable(QWidget):
     def __init__(self, db_conn, is_paid_out=True, use_full_category=True):
@@ -23,50 +25,51 @@ class PieChartWithTable(QWidget):
         self.refresh()
 
     def init_ui(self):
-        main_layout = QVBoxLayout()
+        layout = QVBoxLayout()
 
-        self.category_label = QLabel("Click a segment or row to see transactions")
-        main_layout.addWidget(self.category_label)
+        self.category_label = QLabel("Click a segment or category to see transactions")
+        layout.addWidget(self.category_label)
 
-        chart_table_layout = QHBoxLayout()
+        # Horizontal layout for pie chart and category table
+        split_layout = QHBoxLayout()
 
         # Pie chart
         self.fig = Figure(figsize=(5, 5))
         self.canvas = FigureCanvas(self.fig)
         self.canvas.setSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Expanding)
         self.ax = self.fig.add_subplot(111)
-        chart_table_layout.addWidget(self.canvas, 3)
+        split_layout.addWidget(self.canvas, 2)
 
-        # Category summary table
+        # Category table
         self.category_table = QTableWidget()
         self.category_table.setColumnCount(2)
         self.category_table.setHorizontalHeaderLabels(["Category", "Amount"])
-        self.category_table.setEditTriggers(QAbstractItemView.EditTrigger.NoEditTriggers)
-        self.category_table.setSelectionBehavior(QAbstractItemView.SelectionBehavior.SelectRows)
-        self.category_table.setSelectionMode(QAbstractItemView.SelectionMode.SingleSelection)
-        self.category_table.setSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Expanding)
-        chart_table_layout.addWidget(self.category_table, 1)
+        self.category_table.setSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Expanding)
+        self.category_table.horizontalHeader().setSectionResizeMode(QHeaderView.ResizeMode.ResizeToContents)
+        split_layout.addWidget(self.category_table, 1)
 
-        main_layout.addLayout(chart_table_layout)
+        layout.addLayout(split_layout)
 
         # Transactions table
         self.table = QTableWidget()
         self.table.setSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Expanding)
         self.table.setColumnCount(4)
+        self.table.setSortingEnabled(True)
         headers = ["Date", "Transaction Type", "Description", "Paid Out" if self.is_paid_out else "Paid In"]
         self.table.setHorizontalHeaderLabels(headers)
-        main_layout.addWidget(self.table, 3)
+        self.table.horizontalHeader().setSectionResizeMode(QHeaderView.ResizeMode.ResizeToContents)
+        layout.addWidget(self.table)
 
-        self.setLayout(main_layout)
+        self.setLayout(layout)
 
         self.canvas.mpl_connect('pick_event', self.on_pie_click)
-        self.category_table.itemSelectionChanged.connect(self.on_category_table_click)
+        self.category_table.cellClicked.connect(self.on_category_table_click)
 
     def refresh(self):
         self.current_selected_category = None
-        self.category_label.setText("Click a segment or row to see transactions")
         self.table.clearContents()
         self.table.setRowCount(0)
+        self.category_label.setText("Click a segment or category to see transactions")
         self.load_data()
         self.draw_pie()
         self.populate_category_table()
@@ -87,12 +90,13 @@ class PieChartWithTable(QWidget):
         columns = ['id', 'date', 'transaction_type', 'description', amount_col, 'category']
         base_df = pd.DataFrame(rows, columns=columns)
         base_df['category'] = base_df['category'].fillna('Uncategorised')
-
         self.df = base_df.copy()
+
         if not self.use_full_category:
             self.df['category'] = self.df['category'].apply(lambda c: c.split(';')[0].strip())
 
-        self.grouped = self.df.groupby('category')[amount_col].sum().sort_values(ascending=False)
+        self.amount_col = amount_col
+        self.grouped = self.df.groupby('category')[amount_col].sum()
         self.categories = self.grouped.index.tolist()
         self.sizes = self.grouped.values.tolist()
 
@@ -113,26 +117,15 @@ class PieChartWithTable(QWidget):
         self.wedges = wedges
         self.canvas.draw()
 
-    def populate_category_table(self):
-        self.category_table.setRowCount(len(self.categories))
-        for idx, (cat, size) in enumerate(zip(self.categories, self.sizes)):
-            self.category_table.setItem(idx, 0, QTableWidgetItem(cat))
-            self.category_table.setItem(idx, 1, QTableWidgetItem(f"{size:.2f}"))
-        self.category_table.resizeColumnsToContents()
-
     def on_pie_click(self, event):
         wedge = event.artist
         if wedge not in self.wedges:
             return
         idx = self.wedges.index(wedge)
-        category = self.categories[idx]
-        self.select_category(category)
+        self.select_category(self.categories[idx])
 
-    def on_category_table_click(self):
-        selected = self.category_table.selectedItems()
-        if not selected:
-            return
-        category = selected[0].text()
+    def on_category_table_click(self, row, _col):
+        category = self.category_table.item(row, 0).text()
         self.select_category(category)
 
     def select_category(self, category):
@@ -141,10 +134,9 @@ class PieChartWithTable(QWidget):
         self.current_selected_category = category
         self.category_label.setText(f"Transactions in category: {category}")
         filtered = self.df[self.df['category'] == category]
-        self.populate_table(filtered)
+        self.populate_transaction_table(filtered)
 
-    def populate_table(self, df_filtered):
-        amount_col = 'paid_out' if self.is_paid_out else 'paid_in'
+    def populate_transaction_table(self, df_filtered):
         MAX_ROWS = 200
         if len(df_filtered) > MAX_ROWS:
             df_filtered = df_filtered.head(MAX_ROWS)
@@ -154,7 +146,13 @@ class PieChartWithTable(QWidget):
             self.table.setItem(row_idx, 0, QTableWidgetItem(row['date']))
             self.table.setItem(row_idx, 1, QTableWidgetItem(row['transaction_type']))
             self.table.setItem(row_idx, 2, QTableWidgetItem(row['description']))
-            self.table.setItem(row_idx, 3, QTableWidgetItem(f"{row[amount_col]:.2f}"))
+            self.table.setItem(row_idx, 3, QTableWidgetItem(f"{row[self.amount_col]:.2f}"))
+
+    def populate_category_table(self):
+        self.category_table.setRowCount(len(self.categories))
+        for row, cat in enumerate(self.categories):
+            self.category_table.setItem(row, 0, QTableWidgetItem(cat))
+            self.category_table.setItem(row, 1, QTableWidgetItem(f"{self.grouped[cat]:.2f}"))
 
 
 class MainWindow(QWidget):
@@ -165,28 +163,53 @@ class MainWindow(QWidget):
 
     def init_ui(self):
         self.setWindowTitle("Bank Transactions Categorisation")
-        layout = QHBoxLayout()
+        main_layout = QVBoxLayout()
 
-        left_layout = QVBoxLayout()
+        # Top control panel
+        control_layout = QHBoxLayout()
+
         self.checkbox = QCheckBox("Use full category (show subcategories)")
         self.checkbox.setChecked(True)
-        left_layout.addWidget(self.checkbox)
+        control_layout.addWidget(self.checkbox)
 
+        self.radio_paid_out = QRadioButton("Show Paid Out")
+        self.radio_paid_in = QRadioButton("Show Paid In")
+        self.radio_paid_out.setChecked(True)
+
+        self.radio_group = QButtonGroup()
+        self.radio_group.addButton(self.radio_paid_out)
+        self.radio_group.addButton(self.radio_paid_in)
+
+        control_layout.addWidget(self.radio_paid_out)
+        control_layout.addWidget(self.radio_paid_in)
+
+        main_layout.addLayout(control_layout)
+
+        # Charts
         self.pie_out = PieChartWithTable(self.db_conn, is_paid_out=True, use_full_category=True)
-        left_layout.addWidget(self.pie_out)
-
-        layout.addLayout(left_layout)
-
         self.pie_in = PieChartWithTable(self.db_conn, is_paid_out=False, use_full_category=True)
-        layout.addWidget(self.pie_in)
 
-        self.setLayout(layout)
+        main_layout.addWidget(self.pie_out)
+        main_layout.addWidget(self.pie_in)
+
+        self.setLayout(main_layout)
+
         self.checkbox.stateChanged.connect(self.on_checkbox_change)
+        self.radio_paid_out.toggled.connect(self.toggle_chart_visibility)
+
+        self.toggle_chart_visibility()
 
     def on_checkbox_change(self):
         use_full = self.checkbox.isChecked()
         self.pie_out.use_full_category = use_full
+        self.pie_in.use_full_category = use_full
         self.pie_out.refresh()
+        self.pie_in.refresh()
+
+    def toggle_chart_visibility(self):
+        show_out = self.radio_paid_out.isChecked()
+        self.pie_out.setVisible(show_out)
+        self.pie_in.setVisible(not show_out)
 
 
 def main():

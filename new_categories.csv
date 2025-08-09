@@ -1,5 +1,41 @@
 transaction_type_pattern,description_pattern,category
-.*,COSTA COFFEE.*,EATING OUT;COFFEE
-.*,MCDONALDS.*,EATING OUT;FAST FOOD
-.*,.*CAFE RAILS,EATING OUT;COFFEE
+.*,COSTA COFFEE,EATING OUT;COFFEE
+.*,MCDONALDS,EATING OUT;FAST FOOD
+.*,BURGER KING,EATING OUT;FAST FOOD
+.*,GREGGS,EATING OUT;FAST FOOD
+.*,CAFE RAILS,EATING OUT;COFFEE
 .*,Wasabi_HighStreetKensi London GB,EATING OUT;LUNCH
+.*,WASABI,EATING OUT;LUNCH
+.*,WHOLE FOODS MARKET.*,EATING OUT;LUNCH
+
+.*,SWRAILWAY TCK,Travel;Train
+.*,ESSO,Travel;Fuel
+.*,SHELL STATION,Travel;Fuel
+Contactless Payment,Hart District,Travel;Car Parks
+
+.*,SAINSBURY'S,FOOD
+.*,WAITROSE,FOOD
+.*,WM MORRISONS,FOOD
+.*,ASDA STORES,FOOD
+.*,TESCO,FOOD
+.*,Nisa Local,FOOD
+
+
+.*,eBay,Household;ebay
+.*,AMAZON,Household;Amazon
+Direct debit,D&G,Household;Insurance
+Direct debit,LV LIFE,Household;Insurance
+Direct debit,OCTOPUS,Household;Bills
+Direct debit,SOUTH EAST WATER,Household;Bills
+Direct debit,SOUTH EAST WATER,Household;Bills
+Direct debit,NEWCASTLE,Household;Mortgage
+.*,Amazon Prime,Entertainment;Amazon Prime
+.*,CINEWORLD,Entertainment;Cinema
+
+.*,BOOTS REWARDSCHEME,Health;Contact Lenses
+.*,MYDENTIST,Health;Dentist
+
+.*,HIFML,Savings;Halifax
+
+
+
