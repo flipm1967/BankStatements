@@ -1,11 +1,26 @@
 transaction_type_pattern,description_pattern,category
 
 
+.*,DAKU COFFEE,EATING OUT;COFFEE
+.*,DAKU London,EATING OUT;COFFEE
 .*,COSTA COFFEE,EATING OUT;COFFEE
 .*,STARBUCKS,EATING OUT;COFFEE
 .*,CAFE NERO,EATING OUT;COFFEE
 .*,KNOOPS,EATING OUT;COFFEE
+.*,CAFE BAR,EATING OUT;COFFEE
+.*,CAFE NERO,EATING OUT;COFFEE
+.*,CAFE RAILS,EATING OUT;COFFEE
 
+.*,Wasabi_HighStreetKensi London GB,EATING OUT;LUNCH
+.*,WASABI,EATING OUT;LUNCH
+.*,WHOLE FOODS MARKET,EATING OUT;LUNCH
+.*,PORTLANDS 247,EATING OUT;LUNCH
+.*,BAGEL,EATING OUT;LUNCH
+.*,UPPER CRUST,EATING OUT;LUNCH
+
+.*,Ancells Fish and Chips,EATING OUT;FAST FOOD
+.*,FLYING FISH,EATING OUT;FAST FOOD
+.*,THE GOOD BREAKFAST,EATING OUT;FAST FOOD
 .*,KFC,EATING OUT;FAST FOOD
 .*,MCDONALDS,EATING OUT;FAST FOOD
 .*,BURGER KING,EATING OUT;FAST FOOD
@@ -17,7 +32,16 @@ transaction_type_pattern,description_pattern,category
 .*,GOLDEN DRAGON,EATING OUT;FAST FOOD
 .*,Diwali Indian,EATING OUT;FAST FOOD
 .*,GAILS,EATING OUT;FAST FOOD
+.*,TOPS PIZZA,EATING OUT;FAST FOOD
+.*,JUBILEE CAFE,EATING OUT;FAST FOOD
+.*,MARKS&SPENCER,EATING OUT;FAST FOOD
 
+.*,WATERMILL.ORG,EATING OUT;RESTAURANT
+.*,Wagamama,EATING OUT;RESTAURANT
+.*,WAGAMAMA,EATING OUT;RESTAURANT
+.*,WING STOP,EATING OUT;RESTAURANT
+.*,COSY CLUB,EATING OUT;RESTAURANT
+.*,COSMO,EATING OUT;RESTAURANT
 .*,KARA FLEET,EATING OUT;RESTAURANT
 .*,LOUNGERS BRISTOL,EATING OUT;RESTAURANT
 .*,WILDERKITCHEN,EATING OUT;RESTAURANT
@@ -25,6 +49,7 @@ transaction_type_pattern,description_pattern,category
 .*,Bella Capri,EATING OUT;RESTAURANT
 .*,ALENTO lOUNGE,EATING OUT;RESTAURANT
 
+.*,WETHERSPOON,EATING OUT;PUB
 .*,OATSHEAF,EATING OUT;PUB
 .*,PARCEL YARD,EATING OUT;PUB
 .*,PRINCE OF WALES,EATING OUT;PUB
@@ -35,59 +60,82 @@ transaction_type_pattern,description_pattern,category
 .*,WWW.BREWDOG.COM,EATING OUT;PUB
 .*,CRAB AND DRAGON,EATING OUT;PUB
 .*,GREYHOUND,EATING OUT;PUB
+.*,CROOKHAM STREET SOCIAL,EATING OUT;PUB
+.*,FOX AND HOUNDS,EATING OUT;PUB
+.*,BELL INN,EATING OUT;PUB
 
+.*,TV LICENCE,Entertainment;TV Licence
+.*,APPLE.COM,Entertainment;Apple TV
 .*,Netflix,Entertainment;Netflix
 .*,NETFLIX,Entertainment;Netflix
 .*,Amazon Prime,Entertainment;Amazon Prime
 .*,Prime Video,Entertainment;Amazon Prime
 .*,CINEWORLD,Entertainment;Cinema
+.*,Vue Cinemas,Entertainment;Cinema
 .*,ALLWYN,Entertainment;Lottery
 .*,Spotify,Entertainment;Spotify
-.*,Legoland,Entertainment;Spotify
-.*,LONDON THEATRE DIRECT,Entertainment;Spotify
+.*,Legoland,Entertainment;Legolad
 
+.*,The Lost Est,Entertainment;Theatre
+.*,LONDON THEATRE DIRECT,Entertainment;Theatre
+.*,Tank Museum,Entertainment;Tank Museum
+
+.*,DORSET NECTAR,Entertainment;Camping & Festivals
+.*,TRUCK FESTIVAL,Entertainment;Camping & Festivals
 .*,Decathlon,Entertainment;Camping & Festivals
 .*,HARRINGTONS BOTTLED GAS,Entertainment;Camping & Festivals
 
-.*,CAFE RAILS,EATING OUT;COFFEE
-.*,Wasabi_HighStreetKensi London GB,EATING OUT;LUNCH
-.*,WASABI,EATING OUT;LUNCH
-.*,WHOLE FOODS MARKET.*,EATING OUT;LUNCH
-.*,PORTLANDS 247.*,EATING OUT;LUNCH
 
-.*,TFL TRAVEL,Travel;Tube
-.*,SWRAILWAYSELFSERVE,Travel;Train
-.*,SWRAILWAY TCK,Travel;Train
+
+.*,TFL TRAVEL,Travel work;Tube
+.*,SWRAILWAYSELFSERVE,Travel work;Train
+.*,SWRAILWAY TCK,Travel work;Train
+
+.*,BP,Travel;Fuel
 .*,ESSO,Travel;Fuel
 .*,SHELL ,Travel;Fuel
 .*,AMESBURY FILLING,Travel;Fuel
 .*,M6 TOLL,Travel;Tolls
 .*,ALPHA BATTERIES,Travel;Car Repairs
 .*,FOSTER AND HEANES,Travel;Car Repairs
+.*,ROADWHEEL,Travel;Car Repairs
+.*,DVLA,Travel;Car Tax
+.*,esure,Travel;Car Insurance
 Contactless Payment,Hart District,Travel;Car Parks
+Contactless Payment,ASHLEY CENTRE,Travel;Car Parks
+.*,RINGGO,Travel;Car Parks
+.*,SILVESTER BROS,Travel;Bike repairs
 
 .*,SAINSBURY,FOOD;Sainsbury
 .*,WAITROSE,FOOD;Waitrose
 .*,WM MORRISONS,FOOD;Morrison
+.*,W M MORRISONS,FOOD;Morrison
 .*,ASDA STORES,FOOD;ASDA
 .*,TESCO,FOOD;TESCO
 .*,Nisa Local,FOOD;Nisa
 .*,CO-OP,FOOD;Coop
 
+.*,Temu,Household;Temu
+.*,aliexpress,Household;aliexpress
+
 .*,eBay,Household;ebay
 .*,AMAZON,Household;Amazon
 Direct debit,D&G,Household;Insurance
+,Aviva Online Perth,Household;Insurance
 Direct debit,LV LIFE,Household;Insurance
 Direct debit,HART D C,Household;Bills
 Direct debit,OCTOPUS,Household;Bills
 Direct debit,SOUTH EAST WATER,Household;Bills
 Direct debit,SOUTH EAST WATER,Household;Bills
 Direct debit,NEWCASTLE,Household;Mortgage
+.*,Argos,Household;Argos
 .*,Shurgard,Household;Storage
 .*,SCREWFIX,Household;DIY
 .*,GAPOGROUP,Household;DIY
+.*,HIPPO WASTEWORLD,Household;DIY
 .*,RADIATOR WORLD,Household;DIY
 .*,VICTORIAN PLUMBING,Household;DIY
+.*,ROBERT DYAS,Household;DIY
 .*,SELCO,Household;DIY
 .*,B & Q,Household;DIY
 .*,insulation4le,Household;DIY
@@ -99,6 +147,8 @@ Direct debit,NEWCASTLE,Household;Mortgage
 .*,HMRC,Household;Tax Payment
 
 
+.*,WIZARD CLINICS,Health;Skin Tag
+.*,HOLLAND & BARRETT,Health;Vitamins & Minerals
 .*,BOOTS OPTICIANS,Health;Contact Lenses
 .*,BOOTS REWARDSCHEME,Health;Contact Lenses
 .*,BOOTS.*FLEET,Health;Toiletries
@@ -111,6 +161,8 @@ Direct debit,NEWCASTLE,Household;Mortgage
 .*,Rituals Cosmetics,Health;Perfume
 .*,Lush UK,Health;Perfume
 .*,GLL,Health;Gym
+.*,BETTER.ORG,Health;Gym
+.*,DADDS N LADS,Health;Haircuts
 
 .*,HIFML,Savings;Halifax
 .*,ISA-CAR,Savings;Car Savings
@@ -133,5 +185,7 @@ Direct debit,NEWCASTLE,Household;Mortgage
 Transfer to,07,Transfers;Nationwide
 Transfer from,07.*,Transfers;Nationwide
 Payment to,PHILIP MUMFORD,Transfers;Nationwide
+ATM Withdrawal,.*,Cash Withdrawal;Cash
 
-
+.*,Airbnb,Holidays;Weekend Break
+.*,SESTRIERE,Holdays;Skiing
