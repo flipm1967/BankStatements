@@ -55,6 +55,7 @@ class PieChartWithTable(QWidget):
         self.db_conn = db_conn
         self.is_paid_out = is_paid_out
         self.use_full_category = use_full_category
+        self.essential_filter = 'ALL'  # 'ALL', 'Y', 'N'
 
         self.df = pd.DataFrame()
         self.current_selected_category = None
@@ -104,16 +105,22 @@ class PieChartWithTable(QWidget):
         cursor = self.db_conn.cursor()
         amount_col = 'paid_out' if self.is_paid_out else 'paid_in'
         query = f'''
-            SELECT t.id, t.date, t.transaction_type, t.description, t.{amount_col}, cg.category
+            SELECT t.id, t.date, t.transaction_type, t.description, t.{amount_col}, cg.category, cg.essential
             FROM transactions t
             LEFT JOIN categorised cg ON t.id = cg.transaction_id
             WHERE t.{amount_col} > 0
         '''
+        # apply essential filter (treat NULL as 'N')
+        if self.essential_filter == 'Y':
+            query = query.strip() + f" AND COALESCE(cg.essential,'N') = 'Y'"
+        elif self.essential_filter == 'N':
+            query = query.strip() + f" AND COALESCE(cg.essential,'N') = 'N'"
         cursor.execute(query)
         rows = cursor.fetchall()
-        columns = ['id', 'date', 'transaction_type', 'description', amount_col, 'category']
+        columns = ['id', 'date', 'transaction_type', 'description', amount_col, 'category', 'essential']
         df = pd.DataFrame(rows, columns=columns)
         df['category'] = df['category'].fillna('Uncategorised')
+        df['essential'] = df['essential'].fillna('N')
         if not self.use_full_category:
             df['category'] = df['category'].apply(lambda c: c.split(';')[0].strip())
         self.df = df
@@ -166,11 +173,18 @@ class PieChartWithTable(QWidget):
         self.current_selected_category = category
         self.category_label.setText(f"Transactions in category: {category}")
         filtered = self.df[self.df['category'] == category]
-        tx_df = filtered[['date', 'transaction_type', 'description', self.amount_col]].copy()
-        tx_df.columns = ["Date", "Transaction Type", "Description", "Amount"]
+        tx_df = filtered[['date', 'transaction_type', 'description', self.amount_col, 'essential']].copy()
+        tx_df.columns = ["Date", "Transaction Type", "Description", "Amount", "Essential"]
         model = PandasModel(tx_df)
         self.table.setModel(model)
         self.table.resizeColumnsToContents()
+
+    def set_essential_filter(self, mode):
+        # mode: 'ALL', 'Y', 'N'
+        if mode not in ('ALL', 'Y', 'N'):
+            return
+        self.essential_filter = mode
+        self.refresh()
 
 
 class MainWindow(QWidget):
@@ -198,6 +212,21 @@ class MainWindow(QWidget):
         top_controls.addWidget(self.radio_paid_out)
         top_controls.addWidget(self.radio_paid_in)
 
+        # Essential filter radio buttons
+        self.essential_label = QLabel("Essential filter:")
+        top_controls.addWidget(self.essential_label)
+        self.essential_all = QRadioButton("All")
+        self.essential_yes = QRadioButton("Essential only")
+        self.essential_no = QRadioButton("Non-essential only")
+        self.essential_all.setChecked(True)
+        self.essential_group = QButtonGroup()
+        self.essential_group.addButton(self.essential_all)
+        self.essential_group.addButton(self.essential_yes)
+        self.essential_group.addButton(self.essential_no)
+        top_controls.addWidget(self.essential_all)
+        top_controls.addWidget(self.essential_yes)
+        top_controls.addWidget(self.essential_no)
+
         main_layout.addLayout(top_controls)
 
         self.chart_container = QVBoxLayout()
@@ -214,6 +243,13 @@ class MainWindow(QWidget):
 
         self.checkbox.stateChanged.connect(self.on_checkbox_change)
         self.radio_paid_out.toggled.connect(self.on_radio_change)
+        self.essential_all.toggled.connect(self.on_essential_change)
+        self.essential_yes.toggled.connect(self.on_essential_change)
+        self.essential_no.toggled.connect(self.on_essential_change)
+
+        # initialise filter state on pies
+        self.pie_out.set_essential_filter('ALL')
+        self.pie_in.set_essential_filter('ALL')
 
     def on_checkbox_change(self):
         use_full = self.checkbox.isChecked()
@@ -229,6 +265,17 @@ class MainWindow(QWidget):
         self.pie_out.setVisible(show_out)
         self.pie_in.setVisible(not show_out)
         self.on_checkbox_change()
+
+    def on_essential_change(self):
+        if self.essential_all.isChecked():
+            mode = 'ALL'
+        elif self.essential_yes.isChecked():
+            mode = 'Y'
+        else:
+            mode = 'N'
+        # apply to both pie widgets
+        self.pie_out.set_essential_filter(mode)
+        self.pie_in.set_essential_filter(mode)
 
 
 def main():

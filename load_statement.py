@@ -53,7 +53,8 @@ CREATE TABLE categories (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     transaction_type_pattern TEXT,
     description_pattern TEXT,
-    category TEXT
+    category TEXT,
+    essential TEXT
 )
 ''')
 
@@ -62,6 +63,7 @@ cursor.execute('''
 CREATE TABLE categorised (
     transaction_id INTEGER PRIMARY KEY,
     category TEXT,
+    essential TEXT,
     FOREIGN KEY(transaction_id) REFERENCES transactions(id)
 )
 ''')
@@ -84,30 +86,32 @@ with open(csv_filename, newline='', encoding='utf-8') as csvfile:
 
 # === INSERT DEFAULT CATEGORY ===
 cursor.execute('''
-INSERT INTO categories (transaction_type_pattern, description_pattern, category)
-VALUES (?, ?, ?)
-''', ('.*', '.*', 'Uncategorised'))
+INSERT INTO categories (transaction_type_pattern, description_pattern, category, essential)
+VALUES (?, ?, ?, ?)
+''', ('.*', '.*', 'Uncategorised', 'N'))
 
 # === CATEGORISE TRANSACTIONS ===
 # Fetch all transactions
 cursor.execute('SELECT id, transaction_type, description FROM transactions')
 transactions = cursor.fetchall()
 
-# Fetch all category rules
-cursor.execute('SELECT transaction_type_pattern, description_pattern, category FROM categories')
+# Fetch all category rules (include essential flag)
+cursor.execute('SELECT transaction_type_pattern, description_pattern, category, essential FROM categories')
 category_rules = cursor.fetchall()
 
 # Apply rules to each transaction
 for txn_id, txn_type, desc in transactions:
     matched_category = 'Uncategorised'
-    for type_pattern, desc_pattern, category in category_rules:
+    matched_essential = 'N'
+    for type_pattern, desc_pattern, category, essential in category_rules:
         if re.match(type_pattern, txn_type) and re.match(desc_pattern, desc):
             matched_category = category
+            matched_essential = essential
             break
     cursor.execute('''
-        INSERT INTO categorised (transaction_id, category)
-        VALUES (?, ?)
-    ''', (txn_id, matched_category))
+        INSERT INTO categorised (transaction_id, category, essential)
+        VALUES (?, ?, ?)
+    ''', (txn_id, matched_category, matched_essential))
 
 # === FINALISE ===
 conn.commit()

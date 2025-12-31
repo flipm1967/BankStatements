@@ -1,191 +1,191 @@
-transaction_type_pattern,description_pattern,category
+transaction_type_pattern,description_pattern,category,essential
 
 
-.*,DAKU COFFEE,EATING OUT;COFFEE
-.*,DAKU London,EATING OUT;COFFEE
-.*,COSTA COFFEE,EATING OUT;COFFEE
-.*,STARBUCKS,EATING OUT;COFFEE
-.*,CAFE NERO,EATING OUT;COFFEE
-.*,KNOOPS,EATING OUT;COFFEE
-.*,CAFE BAR,EATING OUT;COFFEE
-.*,CAFE NERO,EATING OUT;COFFEE
-.*,CAFE RAILS,EATING OUT;COFFEE
+.*,DAKU COFFEE,EATING OUT;COFFEE,N
+.*,DAKU London,EATING OUT;COFFEE,N
+.*,COSTA COFFEE,EATING OUT;COFFEE,N
+.*,STARBUCKS,EATING OUT;COFFEE,N
+.*,CAFE NERO,EATING OUT;COFFEE,N
+.*,KNOOPS,EATING OUT;COFFEE,N
+.*,CAFE BAR,EATING OUT;COFFEE,N
+.*,CAFE NERO,EATING OUT;COFFEE,N
+.*,CAFE RAILS,EATING OUT;COFFEE,N
 
-.*,Wasabi_HighStreetKensi London GB,EATING OUT;LUNCH
-.*,WASABI,EATING OUT;LUNCH
-.*,WHOLE FOODS MARKET,EATING OUT;LUNCH
-.*,PORTLANDS 247,EATING OUT;LUNCH
-.*,BAGEL,EATING OUT;LUNCH
-.*,UPPER CRUST,EATING OUT;LUNCH
+.*,Wasabi_HighStreetKensi London GB,EATING OUT;LUNCH,N
+.*,WASABI,EATING OUT;LUNCH,N
+.*,WHOLE FOODS MARKET,EATING OUT;LUNCH,N
+.*,PORTLANDS 247,EATING OUT;LUNCH,N
+.*,BAGEL,EATING OUT;LUNCH,N
+.*,UPPER CRUST,EATING OUT;LUNCH,N
 
-.*,Ancells Fish and Chips,EATING OUT;FAST FOOD
-.*,FLYING FISH,EATING OUT;FAST FOOD
-.*,THE GOOD BREAKFAST,EATING OUT;FAST FOOD
-.*,KFC,EATING OUT;FAST FOOD
-.*,MCDONALDS,EATING OUT;FAST FOOD
-.*,BURGER KING,EATING OUT;FAST FOOD
-.*,GREGGS,EATING OUT;FAST FOOD
-.*,NEW ERA,EATING OUT;FAST FOOD
-.*,BRIDGE ROAD CAFE,EATING OUT;FAST FOOD
-.*,SALT DELI,EATING OUT;FAST FOOD
-.*,WOK U LIKE,EATING OUT;FAST FOOD
-.*,GOLDEN DRAGON,EATING OUT;FAST FOOD
-.*,Diwali Indian,EATING OUT;FAST FOOD
-.*,GAILS,EATING OUT;FAST FOOD
-.*,TOPS PIZZA,EATING OUT;FAST FOOD
-.*,JUBILEE CAFE,EATING OUT;FAST FOOD
-.*,MARKS&SPENCER,EATING OUT;FAST FOOD
+.*,Ancells Fish and Chips,EATING OUT;FAST FOOD,N
+.*,FLYING FISH,EATING OUT;FAST FOOD,N
+.*,THE GOOD BREAKFAST,EATING OUT;FAST FOOD,N
+.*,KFC,EATING OUT;FAST FOOD,N
+.*,MCDONALDS,EATING OUT;FAST FOOD,N
+.*,BURGER KING,EATING OUT;FAST FOOD,N
+.*,GREGGS,EATING OUT;FAST FOOD,N
+.*,NEW ERA,EATING OUT;FAST FOOD,N
+.*,BRIDGE ROAD CAFE,EATING OUT;FAST FOOD,N
+.*,SALT DELI,EATING OUT;FAST FOOD,N
+.*,WOK U LIKE,EATING OUT;FAST FOOD,N
+.*,GOLDEN DRAGON,EATING OUT;FAST FOOD,N
+.*,Diwali Indian,EATING OUT;FAST FOOD,N
+.*,GAILS,EATING OUT;FAST FOOD,N
+.*,TOPS PIZZA,EATING OUT;FAST FOOD,N
+.*,JUBILEE CAFE,EATING OUT;FAST FOOD,N
+.*,MARKS&SPENCER,EATING OUT;FAST FOOD,N
 
-.*,WATERMILL.ORG,EATING OUT;RESTAURANT
-.*,Wagamama,EATING OUT;RESTAURANT
-.*,WAGAMAMA,EATING OUT;RESTAURANT
-.*,WING STOP,EATING OUT;RESTAURANT
-.*,COSY CLUB,EATING OUT;RESTAURANT
-.*,COSMO,EATING OUT;RESTAURANT
-.*,KARA FLEET,EATING OUT;RESTAURANT
-.*,LOUNGERS BRISTOL,EATING OUT;RESTAURANT
-.*,WILDERKITCHEN,EATING OUT;RESTAURANT
-.*,El Castello,EATING OUT;RESTAURANT
-.*,Bella Capri,EATING OUT;RESTAURANT
-.*,ALENTO lOUNGE,EATING OUT;RESTAURANT
+.*,WATERMILL.ORG,EATING OUT;RESTAURANT,N
+.*,Wagamama,EATING OUT;RESTAURANT,N
+.*,WAGAMAMA,EATING OUT;RESTAURANT,N
+.*,WING STOP,EATING OUT;RESTAURANT,N
+.*,COSY CLUB,EATING OUT;RESTAURANT,N
+.*,COSMO,EATING OUT;RESTAURANT,N
+.*,KARA FLEET,EATING OUT;RESTAURANT,N
+.*,LOUNGERS BRISTOL,EATING OUT;RESTAURANT,N
+.*,WILDERKITCHEN,EATING OUT;RESTAURANT,N
+.*,El Castello,EATING OUT;RESTAURANT,N
+.*,Bella Capri,EATING OUT;RESTAURANT,N
+.*,ALENTO lOUNGE,EATING OUT;RESTAURANT,N
 
-.*,WETHERSPOON,EATING OUT;PUB
-.*,OATSHEAF,EATING OUT;PUB
-.*,PARCEL YARD,EATING OUT;PUB
-.*,PRINCE OF WALES,EATING OUT;PUB
-.*,QUEENS ARMS,EATING OUT;PUB
-.*,THE QUEEN HOTEL,EATING OUT;PUB
-.*,The Wyvern,EATING OUT;PUB
-.*,WILLIAMS ALE,EATING OUT;PUB
-.*,WWW.BREWDOG.COM,EATING OUT;PUB
-.*,CRAB AND DRAGON,EATING OUT;PUB
-.*,GREYHOUND,EATING OUT;PUB
-.*,CROOKHAM STREET SOCIAL,EATING OUT;PUB
-.*,FOX AND HOUNDS,EATING OUT;PUB
-.*,BELL INN,EATING OUT;PUB
+.*,WETHERSPOON,EATING OUT;PUB,N
+.*,OATSHEAF,EATING OUT;PUB,N
+.*,PARCEL YARD,EATING OUT;PUB,N
+.*,PRINCE OF WALES,EATING OUT;PUB,N
+.*,QUEENS ARMS,EATING OUT;PUB,N
+.*,THE QUEEN HOTEL,EATING OUT;PUB,N
+.*,The Wyvern,EATING OUT;PUB,N
+.*,WILLIAMS ALE,EATING OUT;PUB,N
+.*,WWW.BREWDOG.COM,EATING OUT;PUB,N
+.*,CRAB AND DRAGON,EATING OUT;PUB,N
+.*,GREYHOUND,EATING OUT;PUB,N
+.*,CROOKHAM STREET SOCIAL,EATING OUT;PUB,N
+.*,FOX AND HOUNDS,EATING OUT;PUB,N
+.*,BELL INN,EATING OUT;PUB,N
 
-.*,TV LICENCE,Entertainment;TV Licence
-.*,APPLE.COM,Entertainment;Apple TV
-.*,Netflix,Entertainment;Netflix
-.*,NETFLIX,Entertainment;Netflix
-.*,Amazon Prime,Entertainment;Amazon Prime
-.*,Prime Video,Entertainment;Amazon Prime
-.*,CINEWORLD,Entertainment;Cinema
-.*,Vue Cinemas,Entertainment;Cinema
-.*,ALLWYN,Entertainment;Lottery
-.*,Spotify,Entertainment;Spotify
-.*,Legoland,Entertainment;Legolad
+.*,TV LICENCE,Entertainment;TV Licence,N
+.*,APPLE.COM,Entertainment;Apple TV,N
+.*,Netflix,Entertainment;Netflix,N
+.*,NETFLIX,Entertainment;Netflix,N
+.*,Amazon Prime,Entertainment;Amazon Prime,N
+.*,Prime Video,Entertainment;Amazon Prime,N
+.*,CINEWORLD,Entertainment;Cinema,N
+.*,Vue Cinemas,Entertainment;Cinema,N
+.*,ALLWYN,Entertainment;Lottery,N
+.*,Spotify,Entertainment;Spotify,N
+.*,Legoland,Entertainment;Legolad,N
 
-.*,The Lost Est,Entertainment;Theatre
-.*,LONDON THEATRE DIRECT,Entertainment;Theatre
-.*,Tank Museum,Entertainment;Tank Museum
+.*,The Lost Est,Entertainment;Theatre,N
+.*,LONDON THEATRE DIRECT,Entertainment;Theatre,N
+.*,Tank Museum,Entertainment;Tank Museum,N
 
-.*,DORSET NECTAR,Entertainment;Camping & Festivals
-.*,TRUCK FESTIVAL,Entertainment;Camping & Festivals
-.*,Decathlon,Entertainment;Camping & Festivals
-.*,HARRINGTONS BOTTLED GAS,Entertainment;Camping & Festivals
-
-
-
-.*,TFL TRAVEL,Travel work;Tube
-.*,SWRAILWAYSELFSERVE,Travel work;Train
-.*,SWRAILWAY TCK,Travel work;Train
-
-.*,BP,Travel;Fuel
-.*,ESSO,Travel;Fuel
-.*,SHELL ,Travel;Fuel
-.*,AMESBURY FILLING,Travel;Fuel
-.*,M6 TOLL,Travel;Tolls
-.*,ALPHA BATTERIES,Travel;Car Repairs
-.*,FOSTER AND HEANES,Travel;Car Repairs
-.*,ROADWHEEL,Travel;Car Repairs
-.*,DVLA,Travel;Car Tax
-.*,esure,Travel;Car Insurance
-Contactless Payment,Hart District,Travel;Car Parks
-Contactless Payment,ASHLEY CENTRE,Travel;Car Parks
-.*,RINGGO,Travel;Car Parks
-.*,SILVESTER BROS,Travel;Bike repairs
-
-.*,SAINSBURY,FOOD;Sainsbury
-.*,WAITROSE,FOOD;Waitrose
-.*,WM MORRISONS,FOOD;Morrison
-.*,W M MORRISONS,FOOD;Morrison
-.*,ASDA STORES,FOOD;ASDA
-.*,TESCO,FOOD;TESCO
-.*,Nisa Local,FOOD;Nisa
-.*,CO-OP,FOOD;Coop
-
-.*,Temu,Household;Temu
-.*,aliexpress,Household;aliexpress
-
-.*,eBay,Household;ebay
-.*,AMAZON,Household;Amazon
-Direct debit,D&G,Household;Insurance
-,Aviva Online Perth,Household;Insurance
-Direct debit,LV LIFE,Household;Insurance
-Direct debit,HART D C,Household;Bills
-Direct debit,OCTOPUS,Household;Bills
-Direct debit,SOUTH EAST WATER,Household;Bills
-Direct debit,SOUTH EAST WATER,Household;Bills
-Direct debit,NEWCASTLE,Household;Mortgage
-.*,Argos,Household;Argos
-.*,Shurgard,Household;Storage
-.*,SCREWFIX,Household;DIY
-.*,GAPOGROUP,Household;DIY
-.*,HIPPO WASTEWORLD,Household;DIY
-.*,RADIATOR WORLD,Household;DIY
-.*,VICTORIAN PLUMBING,Household;DIY
-.*,ROBERT DYAS,Household;DIY
-.*,SELCO,Household;DIY
-.*,B & Q,Household;DIY
-.*,insulation4le,Household;DIY
-.*,INSULATION4LE,Household;DIY
-.*,WICKES,Household;DIY
-.*,PHILIP CARTER,Household;DIY
-.*,PAUL LETTS,Household;DIY
-.*,VODAFONE,Household;Telephone & Broadband
-.*,HMRC,Household;Tax Payment
+.*,DORSET NECTAR,Entertainment;Camping & Festivals,N
+.*,TRUCK FESTIVAL,Entertainment;Camping & Festivals,N
+.*,Decathlon,Entertainment;Camping & Festivals,N
+.*,HARRINGTONS BOTTLED GAS,Entertainment;Camping & Festivals,N
 
 
-.*,WIZARD CLINICS,Health;Skin Tag
-.*,HOLLAND & BARRETT,Health;Vitamins & Minerals
-.*,BOOTS OPTICIANS,Health;Contact Lenses
-.*,BOOTS REWARDSCHEME,Health;Contact Lenses
-.*,BOOTS.*FLEET,Health;Toiletries
-.*,BOOTS.*BRIDGWATER,Health;Toiletries
-.*,SUPERDRUG,Health;Toiletries
-.*,SAVERS HEALTH,Health;Toiletries
-.*,MYDENTIST,Health;Dentist
-.*,CULTBEAUTY,Health;Perfume
-.*,The Fragrance Shop,Health;Perfume
-.*,Rituals Cosmetics,Health;Perfume
-.*,Lush UK,Health;Perfume
-.*,GLL,Health;Gym
-.*,BETTER.ORG,Health;Gym
-.*,DADDS N LADS,Health;Haircuts
 
-.*,HIFML,Savings;Halifax
-.*,ISA-CAR,Savings;Car Savings
-.*,Flex REGULAR,Savings;Emergency Fund
-.*,ISA-EMERGENCY,Savings;Emergency Fund
+.*,TFL TRAVEL,Travel work;Tube,N
+.*,SWRAILWAYSELFSERVE,Travel work;Train,N
+.*,SWRAILWAY TCK,Travel work;Train,N
 
-.*,SAPPHIRE,To Sapphire;With Love
-.*,GSUITE,To Sapphire;Desert workshop
-.*,ALFIE MUMFORD,To Alfie;To Alfie
-.*,DANIEL,To Daniel;To Daniel
-.*,Daniel,To Daniel;To Daniel
+.*,BP,Travel;Fuel,N
+.*,ESSO,Travel;Fuel,N
+.*,SHELL ,Travel;Fuel,N
+.*,AMESBURY FILLING,Travel;Fuel,N
+.*,M6 TOLL,Travel;Tolls,N
+.*,ALPHA BATTERIES,Travel;Car Repairs,N
+.*,FOSTER AND HEANES,Travel;Car Repairs,N
+.*,ROADWHEEL,Travel;Car Repairs,N
+.*,DVLA,Travel;Car Tax,N
+.*,esure,Travel;Car Insurance,N
+Contactless Payment,Hart District,Travel;Car Parks,N
+Contactless Payment,ASHLEY CENTRE,Travel;Car Parks,N
+.*,RINGGO,Travel;Car Parks,N
+.*,SILVESTER BROS,Travel;Bike repairs,N
 
-.*,ANGELA HUXTER,Mum Carers;Angela
-.*,Heather Mills,Mum Carers;Heather
+.*,SAINSBURY,FOOD;Sainsbury,N
+.*,WAITROSE,FOOD;Waitrose,N
+.*,WM MORRISONS,FOOD;Morrison,N
+.*,W M MORRISONS,FOOD;Morrison,N
+.*,ASDA STORES,FOOD;ASDA,N
+.*,TESCO,FOOD;TESCO,N
+.*,Nisa Local,FOOD;Nisa,N
+.*,CO-OP,FOOD;Coop,N
 
-.*,Cheque deposit,Cheque;Mum Carer
-.*,PARTNERS CAPITAL,Income;Salary
-.*,COMMONWEALTH,Income;Dividend
-.*,Interest added,Income;Interest
-Transfer to,07,Transfers;Nationwide
-Transfer from,07.*,Transfers;Nationwide
-Payment to,PHILIP MUMFORD,Transfers;Nationwide
-ATM Withdrawal,.*,Cash Withdrawal;Cash
+.*,Temu,Household;Temu,N
+.*,aliexpress,Household;aliexpress,N
 
-.*,Airbnb,Holidays;Weekend Break
-.*,SESTRIERE,Holdays;Skiing
+.*,eBay,Household;ebay,N
+.*,AMAZON,Household;Amazon,N
+Direct debit,D&G,Household;Insurance,N
+,Aviva Online Perth,Household;Insurance,N
+Direct debit,LV LIFE,Household;Insurance,N
+Direct debit,HART D C,Household;Bills,N
+Direct debit,OCTOPUS,Household;Bills,N
+Direct debit,SOUTH EAST WATER,Household;Bills,N
+Direct debit,SOUTH EAST WATER,Household;Bills,N
+Direct debit,NEWCASTLE,Household;Mortgage,N
+.*,Argos,Household;Argos,N
+.*,Shurgard,Household;Storage,N
+.*,SCREWFIX,Household;DIY,N
+.*,GAPOGROUP,Household;DIY,N
+.*,HIPPO WASTEWORLD,Household;DIY,N
+.*,RADIATOR WORLD,Household;DIY,N
+.*,VICTORIAN PLUMBING,Household;DIY,N
+.*,ROBERT DYAS,Household;DIY,N
+.*,SELCO,Household;DIY,N
+.*,B & Q,Household;DIY,N
+.*,insulation4le,Household;DIY,N
+.*,INSULATION4LE,Household;DIY,N
+.*,WICKES,Household;DIY,N
+.*,PHILIP CARTER,Household;DIY,N
+.*,PAUL LETTS,Household;DIY,N
+.*,VODAFONE,Household;Telephone & Broadband,N
+.*,HMRC,Household;Tax Payment,N
+
+
+.*,WIZARD CLINICS,Health;Skin Tag,N
+.*,HOLLAND & BARRETT,Health;Vitamins & Minerals,N
+.*,BOOTS OPTICIANS,Health;Contact Lenses,N
+.*,BOOTS REWARDSCHEME,Health;Contact Lenses,N
+.*,BOOTS.*FLEET,Health;Toiletries,N
+.*,BOOTS.*BRIDGWATER,Health;Toiletries,N
+.*,SUPERDRUG,Health;Toiletries,N
+.*,SAVERS HEALTH,Health;Toiletries,N
+.*,MYDENTIST,Health;Dentist,N
+.*,CULTBEAUTY,Health;Perfume,N
+.*,The Fragrance Shop,Health;Perfume,N
+.*,Rituals Cosmetics,Health;Perfume,N
+.*,Lush UK,Health;Perfume,N
+.*,GLL,Health;Gym,N
+.*,BETTER.ORG,Health;Gym,N
+.*,DADDS N LADS,Health;Haircuts,N
+
+.*,HIFML,Savings;Halifax,N
+.*,ISA-CAR,Savings;Car Savings,N
+.*,Flex REGULAR,Savings;Emergency Fund,N
+.*,ISA-EMERGENCY,Savings;Emergency Fund,N
+
+.*,SAPPHIRE,To Sapphire;With Love,N
+.*,GSUITE,To Sapphire;Desert workshop,N
+.*,ALFIE MUMFORD,To Alfie;To Alfie,N
+.*,DANIEL,To Daniel;To Daniel,N
+.*,Daniel,To Daniel;To Daniel,N
+
+.*,ANGELA HUXTER,Mum Carers;Angela,N
+.*,Heather Mills,Mum Carers;Heather,N
+
+.*,Cheque deposit,Cheque;Mum Carer,N
+.*,PARTNERS CAPITAL,Income;Salary,N
+.*,COMMONWEALTH,Income;Dividend,N
+.*,Interest added,Income;Interest,N
+Transfer to,07,Transfers;Nationwide,N
+Transfer from,07.*,Transfers;Nationwide,N
+Payment to,PHILIP MUMFORD,Transfers;Nationwide,N
+ATM Withdrawal,.*,Cash Withdrawal;Cash,N
+
+.*,Airbnb,Holidays;Weekend Break,N
+.*,SESTRIERE,Holdays;Skiing,N

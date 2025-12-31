@@ -39,12 +39,13 @@ with open(csv_filename, newline='', encoding='utf-8') as csvfile:
     reader = csv.DictReader(csvfile)
     for row in reader:
         cursor.execute('''
-            INSERT INTO categories (transaction_type_pattern, description_pattern, category)
-            VALUES (?, ?, ?)
+            INSERT INTO categories (transaction_type_pattern, description_pattern, category, essential)
+            VALUES (?, ?, ?, ?)
         ''', (
             row['transaction_type_pattern'],
             row['description_pattern'],
-            row['category']
+            row['category'],
+            row.get('essential', 'N')
         ))
 
 # === RE-CATEGORISE TRANSACTIONS ===
@@ -56,37 +57,39 @@ cursor.execute("DELETE FROM categorised")
 cursor.execute('SELECT id, transaction_type, description FROM transactions')
 transactions = cursor.fetchall()
 
-# Fetch rules
-cursor.execute('SELECT transaction_type_pattern, description_pattern, category FROM categories')
+# Fetch rules (include essential)
+cursor.execute('SELECT transaction_type_pattern, description_pattern, category, essential FROM categories')
 category_rules = cursor.fetchall()
 
 # Re-apply category rules with debug output
 for txn_id, txn_type, desc in transactions:
     matched_category = 'Uncategorised'
+    matched_essential = 'N'
     matched = False
 
-    for type_pattern, desc_pattern, category in category_rules:
+    for type_pattern, desc_pattern, category, essential in category_rules:
         type_match = re.search(type_pattern, txn_type, re.IGNORECASE)
         desc_match = re.search(desc_pattern, desc, re.IGNORECASE)
 
         if type_match and desc_match:
             matched_category = category
+            matched_essential = essential
             matched = True
             if DEBUG:
-              print(f"✅ MATCH: [txn_type='{txn_type}'] [desc='{desc}']")
-              print(f"    ➤ Rule matched: type_pattern='{type_pattern}', desc_pattern='{desc_pattern}'")
-              print(f"    ➤ Category: {category}")
+                print(f"✅ MATCH: [txn_type='{txn_type}'] [desc='{desc}']")
+                print(f"    ➤ Rule matched: type_pattern='{type_pattern}', desc_pattern='{desc_pattern}'")
+                print(f"    ➤ Category: {category} (essential={essential})")
             break  # Stop at first match
 
     if not matched and DEBUG:
         print(f"❌ NO MATCH: [txn_type='{txn_type}'] [desc='{desc}']")
         print(f"    ➤ Assigned category: Uncategorised")
 
-    # Store the result or default uncategorised in the categorised table
+    # Store the result or default uncategorised in the categorised table (include essential)
     cursor.execute('''
-        INSERT INTO categorised (transaction_id, category)
-        VALUES (?, ?)
-    ''', (txn_id, matched_category))
+        INSERT INTO categorised (transaction_id, category, essential)
+        VALUES (?, ?, ?)
+    ''', (txn_id, matched_category, matched_essential))
 
 
 # Finalize
