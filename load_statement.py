@@ -21,7 +21,6 @@ if not os.path.exists(csv_filename):
 print(f"Loading data from: {csv_filename}")
 
 # === CONFIG ===
-csv_filename = '../DATA/StatementDownload20240808-20250808.csv' 
 DB_FILE = 'load_statement.db'
 
 # === SETUP DATABASE ===
