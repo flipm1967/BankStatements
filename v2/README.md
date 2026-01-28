@@ -24,7 +24,12 @@ this produces a .processed file in the same directory
 source bankenv/bin/activate
 python3 load_statement.py ../DATA/StatementDownloadYYYYMMDD-YYYYMMDD.csv.processed
 python3 categorise.py categories.csv
-python3 display.py 
+
+- Show what is missed
+python3 list_uncategorised.py 
+
+- display the final results
+>>> python3 display.py <<< WORK IN PROGRESS FOR v2
 
 - you can query the database manually like this - semicolon is line terminator if you get in a mess
 sqlite3 load_statement.db
