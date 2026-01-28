@@ -1,1 +1,4 @@
-bankenv/
+v1/bankenv/
+*.db
+__pycache__
+DATA
