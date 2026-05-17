@@ -1,44 +1,61 @@
-Will read in bank statements from Nationwide, process and categorise then display
+Will read in bank statements from Nationwide, process and categorise then display.
 
-- One time only (I think it is re-runnable though)
-sudo apt install git
-sudo apt install keepass
-sudo apt install dos2unix
-sudo apt install libxcb-cursor0
-sudo apt install sqlite3
-./create_venv.sh
+Prerequisites (one-time)
+- On Debian/Ubuntu (example):
+	- `sudo apt install git keepass dos2unix libxcb-cursor0 sqlite3`
+- Create and activate the virtualenv (optional):
+	- Unix: `./create_venv.sh` then `source bankenv/bin/activate`
+	- PowerShell: `.\bankenv\Scripts\Activate.ps1`
+	- CMD: `.\bankenv\Scripts\activate.bat`
 
-- Download statements 
-Go to nationwide current account
-click "last 12 months" button
-then click Download Transactions
-on linux this will go to the downloads folder
-move this to the DATA folder
+Download statements
+- From Nationwide current account: choose the date range (e.g. "last 12 months") and Download Transactions as an OFX file.
+- Move the downloaded `.ofx` file into the `DATA/` folder.
 
-- Fix statement file
-We need to fix the encoding, blank lines, pound signs etc in the download
-./preprocess.sh ../DATA/Statement...blah
-this produces a .processed file in the same directory
+Load and categorise (recommended modern workflow)
+1. Load the OFX into the database (Windows example using the `py` launcher):
 
-- Run these after you have removed all the £ signs
-source bankenv/bin/activate
-python3 load_statement.py ../DATA/StatementDownloadYYYYMMDD-YYYYMMDD.csv.processed
-python3 categorise.py categories.csv
+```powershell
+py load_statement_ofx.py "../DATA/Statement Download 2026-May-17 9-17-33.ofx"
+```
 
-- Show what is missed
-python3 list_uncategorised.py 
+2. Apply categories from the Markdown table (defaults to `categories.md`):
+```powershell
+py categorise_md.py
+```
 
-- display the final results
->>> python3 display.py <<< WORK IN PROGRESS FOR v2
+3. Create the HTML report:
+```powershell
+py display.py
+```
 
-- you can query the database manually like this - semicolon is line terminator if you get in a mess
+4. Open `display.html` in your browser.
+Other useful commands
+- List unique uncategorised transaction patterns:
+
+```powershell
+py list_uncategorised.py
+```
+- If you prefer the CSV workflow, use `load_statement.py` (CSV import) and `categorise.py` (CSV categories). Those legacy scripts are present in `OBSOLETE/` if needed.
+
+Database and scripts mapping
+- `load_statement_ofx.py` (or `load_statement.py`) creates/imports the `transactions` table.
+- `categorise_md.py` reads `categories.md` and populates `categories`, then writes `categorised` after applying rules.
+- Legacy scripts: `categorise.py` / `load_statement.py` exist for the older CSV workflow and are available in `OBSOLETE/`.
+
+Inspecting the DB
+- You can open `load_statement.db` in VS Code with the SQLite Viewer extension, or use the CLI:
+
+```powershell
 sqlite3 load_statement.db
-list the tables : .tables 
-show table def  : .schema <tablename>
-show help       : .help
-exit            : .quit
+```
+.tables
+.schema transactions
+.quit
 
-- tables in the database
-transactions - raw transactions loaded by load_statement.py
-categories   - patterns to match with raw transactions to categorise them - loaded by categorise.py
-categorised  - also created by categorise.py for each row in transactions - linked on id - the category for that row
+Notes
+- `categorise_md.py` defaults to `categories.md` so you can run it without arguments.
+- Use the `py` launcher on Windows for consistency in examples; on Unix use `python3` if preferred.
+- Keep this README up to date whenever you change workflow scripts or execution steps.
+
+

@@ -9,15 +9,19 @@
 | .*                       | Heather Mills                    | EXCLUDE       | Mum Carers      | Heather               |                  |                                           |
 | .*                       | THE ORDERS OF ST JOHN.*          | EXCLUDE       | Mum Carers      | Care Home             |                  |                                           |
 | .*                       | Cheque deposit                   | EXCLUDE       | Cheque          | Mum Carer             |                  | Exclude as it clouds things               |
-| Transfer to,*            | 07.*                             | EXCLUDE       | Transfers       | Nationwide            |                  |                                           |
-| Transfer from.*          | 07.*                             | EXCLUDE       | Transfers       | Nationwide            |                  |                                           |
+| XFER                     | 07.*                             | EXCLUDE       | Transfers       | Nationwide            |                  |                                           |
+| XFER                     | 07.*                             | EXCLUDE       | Transfers       | Nationwide            |                  |                                           |
+| XFER                     | NationwideMum                    | EXCLUDE       | Transfers       | Nationwide Mum Assets |                  |This was from Mum's Nationwide C/A .* ISA   |
+| CREDIT                   | MUMFORD EE                       | EXCLUDE       | Transfers       | Barclays Mum Assets   |                  |This was from Mum's Barclays C/A .* ISA     |
 | .*                       | PHILIP MUMFORD                   | EXCLUDE       | Transfers       | Nationwide            |                  |                                           |
 | .*                       | HIFML                            | SAVE          | Savings         | Halifax               |                  |                                           |
 | .*                       | ISA-CAR                          | SAVE          | Savings         | Car Savings           |                  |                                           |
 | .*                       | Flex REGULAR                     | SAVE          | Savings         | Emergency Fund        |                  |                                           |
 | .*                       | ISA-EMERGENCY                    | SAVE          | Savings         | Emergency Fund        |                  |                                           |
-| Direct debit             | D&G                              | NEED          | Household       | Insurance             | Boiler Insurance | Check renewal date                        |
+| .*                       | 1Y SINGLE ACCESS.*               | SAVE          | Savings         | Emergency Fund        |                  |                                           |
+| Direct debit             | D.*G                             | NEED          | Household       | Insurance             | Boiler Insurance | Check renewal date                        |
 | .*                       | Aviva Online Perth               | NEED          | Household       | Insurance             | House Insurance  | Find renewal date                         |
+| .*                       | Aviva Perth.*                    | NEED          | Household       | Insurance             | House Insurance  | Find renewal date                         |
 | Direct debit             | LV LIFE                          | NEED          | Household       | Insurance             | Life Insurance   | Check what this is                        |
 | Direct debit             | HART D C                         | NEED          | Household       | Bills                 | Council Tax      |                                           |
 | Direct debit             | OCTOPUS.*                        | NEED          | Household       | Bills                 | Electric and Gas |                                           |
@@ -105,6 +109,7 @@
 | .*                       | Bella Capri                      | WANT          | EATING OUT      | RESTAURANT            |                  |                                           |
 | .*                       | ALENTO lOUNGE                    | WANT          | EATING OUT      | RESTAURANT            |                  |                                           |
 | .*                       | ZAAL                             | WANT          | EATING OUT      | RESTAURANT            |                  |                                           |
+| .*                       | HERON ON THE LAKE.*              | WANT          | EATING OUT      | RESTAURANT            |                  |                                           |
 | .*                       | WETHERSPOON                      | WANT          | EATING OUT      | PUB                   |                  |                                           |
 | .*                       | OATSHEAF                         | WANT          | EATING OUT      | PUB                   |                  |                                           |
 | .*                       | PARCEL YARD                      | WANT          | EATING OUT      | PUB                   |                  |                                           |
@@ -147,14 +152,15 @@
 | .*                       | VICTORIAN PLUMBING               | WANT          | Household       | DIY                   | Refurbishment    |                                           |
 | .*                       | ROBERT DYAS                      | WANT          | Household       | DIY                   | Refurbishment    |                                           |
 | .*                       | SELCO                            | WANT          | Household       | DIY                   | Refurbishment    |                                           |
-| .*                       | B & Q                            | WANT          | Household       | DIY                   | Refurbishment    |                                           |
+| .*                       | B .* Q                           | WANT          | Household       | DIY                   | Refurbishment    |                                           |
 | .*                       | insulation4le                    | WANT          | Household       | DIY                   | Refurbishment    |                                           |
 | .*                       | INSULATION4LE                    | WANT          | Household       | DIY                   | Refurbishment    |                                           |
 | .*                       | WICKES                           | WANT          | Household       | DIY                   | Refurbishment    |                                           |
 | .*                       | PHILIP CARTER                    | WANT          | Household       | DIY                   | Refurbishment    |                                           |
 | .*                       | PAUL LETTS                       | WANT          | Household       | DIY                   | Refurbishment    |                                           |
+| .*                       | SOLSTICE ROOFING.*               | WANT          | Household       | DIY                   | Refurbishment    | Mum's roof actually                       |
 | .*                       | WIZARD CLINICS                   | WANT          | Health          | Skin Tag              |                  |                                           |
-| .*                       | HOLLAND & BARRETT                | WANT          | Health          | Vitamins & Minerals   |                  |                                           |
+| .*                       | HOLLAND .* BARRETT               | WANT          | Health          | Vitamins & Minerals   |                  |                                           |
 | .*                       | BOOTS OPTICIANS                  | WANT          | Health          | Contact Lenses        |                  |                                           |
 | .*                       | BOOTS REWARDSCHEME               | WANT          | Health          | Contact Lenses        |                  |                                           |
 | .*                       | BOOTS.*FLEET                     | WANT          | Health          | Toiletries            |                  |                                           |
@@ -179,16 +185,17 @@
 | ATM Withdrawal           | .*                               | WANT          | Cash Withdrawal | Cash                  |                  |                                           |
 | .*                       | Airbnb                           | WANT          | Holidays        | Weekend Break         |                  |                                           |
 | .*                       | SESTRIERE                        | WANT          | Holdays         | Skiing                |                  |                                           |
-| .* | THE FALKNERS ARMS | WANT | EATING OUT | Pub | | |
-| .* | ORD NANCE ARMS | WANT | EATING OUT | Pub | | |
-| .* | PRINCE ARTHUR FLEET | WANT | EATING OUT | Pub | | |
-| .* | SUMUP \\*CODY MUSICAL THEA | WANT | Entertainment | Theatre | | |
-| .* | SUMUP \\*ELTHAM LITTLE THE | WANT | Entertainment | Theatre | | |
-| .* | WWW\\.CAMBERLEYTHEATRE\\.| WANT | Entertainment | Theatre | | |
-| .* | Google Play Apps | WANT | Entertainment | Apps | | |
-| .* | BOOTS | WANT | Health | Toiletries | | |
-| .* | VINTED VILNIUS | WANT | Household | Vinted | | |
-| .* | WELCOME BREAK.*FLEET SOUTH | WANT | Travel | Food | | |
-| .* | 071660 68842456 Withdrawal | WANT | Cash Withdrawal | Cash | | |
-| .* | CLR\\*NORTH HANTS GOLF | WANT | Entertainment | Sports | | |
-| .* | HIPPO WASTE | WANT | Household | DIY | Refurbishment | | |
+| .*                       | THE FALKNERS ARMS                | WANT          | EATING OUT      | Pub                   |                  |                                           |
+| .*                       | ORD NANCE ARMS                   | WANT          | EATING OUT      | Pub                   |                  |                                           |
+| .*                       | PRINCE ARTHUR FLEET              | WANT          | EATING OUT      | Pub                   |                  |                                           |
+| .*                       | SUMUP .*CODY MUSICAL THEA        | WANT          | Entertainment   | Theatre               |                  |                                           |
+| .*                       | SUMUP .*ELTHAM LITTLE THE        | WANT          | Entertainment   | Theatre               |                  |                                           |
+| .*                       | .*CAMBERLEYTHEATRE.*             | WANT          | Entertainment   | Theatre               |                  |                                           |
+| .*                       | Google Play Apps                 | WANT          | Entertainment   | Apps                  |                  |                                           |
+| .*                       | BOOTS                            | WANT          | Health          | Toiletries            |                  |                                           |
+| .*                       | VINTED VILNIUS                   | WANT          | Household       | Vinted                |                  |                                           |
+| .*                       | WELCOME BREAK.*FLEET SOUTH       | WANT          | Travel          | Food                  |                  |                                           |
+| .*                       | 071660 68842456 Withdrawal       | WANT          | Cash Withdrawal | Cash                  |                  |                                           |
+| .*                       | CLR\\*NORTH HANTS GOLF           | WANT          | Entertainment   | Sports                |                  |                                           |
+| .*                       | HIPPO WASTE                      | WANT          | Household       | DIY                   | Refurbishment    |                                           |
+| .*                       | PURELY DIAMONDS.*                | WANT          | Household       | Ring                  | Ding a Ling      |                                           |
