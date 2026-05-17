@@ -105,7 +105,7 @@ def build_figure(months, data, all_sub1):
             name=sub1,
             marker_color=color,
             customdata=[[main_category, sub1, m] for m in months],
-            hovertemplate='<b>%{x}</b><br>%{customdata[0]} / %{customdata[1]}<br>Amount: %{y:$,.2f}<extra></extra>',
+            hovertemplate='<b>%{x}</b><br>%{customdata[0]} / %{customdata[1]}<br>Amount: %{y:£,.2f}<extra></extra>',
         )
         traces.append(trace)
         trace_info.append({'main_category': main_category, 'sub1': sub1})
@@ -113,9 +113,9 @@ def build_figure(months, data, all_sub1):
     fig = go.Figure(data=traces)
     fig.update_layout(
         barmode='relative',
-        title='Monthly transaction summary by sub1 category',
+        title='Monthly transaction summary by sub1 category (amounts in £)',
         xaxis_title='Month',
-        yaxis_title='Net amount (paid_in - paid_out)',
+        yaxis_title='Net amount (paid_in - paid_out) in £',
         legend_title='sub1 category',
         hovermode='closest',
         template='plotly_white',
@@ -236,6 +236,7 @@ plotElement.on('plotly_click', function(event) {
 
     const tbody = document.querySelector('#detail-table tbody');
     tbody.innerHTML = '';
+    let total = 0;
     rows.forEach(row => {
         const tr = document.createElement('tr');
         tr.innerHTML = `
@@ -243,13 +244,14 @@ plotElement.on('plotly_click', function(event) {
           <td>${row.main_category}</td>
           <td>${row.sub1}</td>
           <td>${row.description}</td>
-          <td>${row.amount.toFixed(2)}</td>
+          <td>£${row.amount.toFixed(2)}</td>
         `;
         tbody.appendChild(tr);
+        total += row.amount;
     });
     const title = document.getElementById('detail-title');
     title.textContent = rows.length
-      ? `Transactions for ${sub1} in ${month} (${rows.length} rows)`
+      ? `Transactions for ${sub1} in ${month} (${rows.length} rows) : Total = £${total.toFixed(2)}`
       : `No transactions found for ${sub1} in ${month}.`;
 });
 </script>

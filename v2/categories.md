@@ -39,6 +39,7 @@
 | .*                       | ESSO                             | NEED          | Travel          | Fuel                  |                  |                                           |
 | .*                       | SHELL                            | NEED          | Travel          | Fuel                  |                  |                                           |
 | .*                       | AMESBURY FILLING                 | NEED          | Travel          | Fuel                  |                  |                                           |
+| .*                       | SAINSBURY.*PETROL                | NEED          | Travel          | Fuel                  |                  |                                           |
 | .*                       | M6 TOLL                          | NEED          | Travel          | Tolls                 |                  |                                           |
 | .*                       | ALPHA BATTERIES                  | NEED          | Travel          | Car Repairs           |                  |                                           |
 | .*                       | FOSTER AND HEANES                | NEED          | Travel          | Car Repairs           |                  |                                           |
@@ -52,7 +53,7 @@
 | Contactless Payment      | ASHLEY CENTRE                    | NEED          | Travel          | Car Parks             |                  |                                           |
 | .*                       | RINGGO                           | NEED          | Travel          | Car Parks             |                  |                                           |
 | .*                       | SILVESTER BROS                   | NEED          | Travel          | Bike repairs          |                  |                                           |
-| .*                       | SAINSBURY                        | NEED          | FOOD            | Sainsbury             |                  |                                           |
+| .*                       | SAINSBURY.*MKT                   | NEED          | FOOD            | Sainsbury             |                  |                                           |
 | .*                       | WAITROSE                         | NEED          | FOOD            | Waitrose              |                  |                                           |
 | .*                       | WM MORRISONS                     | NEED          | FOOD            | Morrison              |                  |                                           |
 | .*                       | W M MORRISONS                    | NEED          | FOOD            | Morrison              |                  |                                           |
