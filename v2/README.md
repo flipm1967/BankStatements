@@ -13,11 +13,29 @@ Download statements
 - Move the downloaded `.ofx` file into the `DATA/` folder.
 
 Load and categorise (recommended modern workflow)
-1. Load the OFX into the database (Windows example using the `py` launcher):
+
+**Quick (one-command) workflow:**
+```powershell
+.\process_statement.ps1 "../DATA/Statement Download 2026-May-17 9-17-33.ofx"
+```
+
+Or, to auto-detect the latest OFX file in `../DATA/`:
+```powershell
+.\process_statement.ps1
+```
+
+This runs all three steps below and opens the report automatically.
+
+**Manual step-by-step workflow (if needed):**
+1. Load the OFX into the database:
 
 ```powershell
 py load_statement_ofx.py "../DATA/Statement Download 2026-May-17 9-17-33.ofx"
 ```
+
+Caution: Running `load_statement_ofx.py` will drop and recreate the database tables (`transactions`, `categories`, `categorised`) so any existing data in `load_statement.db` will be replaced.
+
+Note: `categorise_md.py` requires a populated `transactions` table and will exit with an error if no transactions are present — run the load step first.
 
 2. Apply categories from the Markdown table (defaults to `categories.md`):
 ```powershell

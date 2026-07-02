@@ -94,7 +94,28 @@ def main():
     conn = sqlite3.connect(DB_FILE)
     cursor = conn.cursor()
 
+    # ensure the transactions table exists -- if not, user probably hasn't loaded statements yet
+    cur_tables = [r[0] for r in cursor.execute("SELECT name FROM sqlite_master WHERE type='table'").fetchall()]
+    if 'transactions' not in cur_tables:
+        print("Error: 'transactions' table not found in database. Run load_statement_ofx.py or load_and_categorise.py first.")
+        conn.close()
+        sys.exit(1)
+
     if TRUNCATE_CATEGORIES:
+        # create categories table if missing, then truncate
+        if 'categories' not in cur_tables:
+            cursor.execute('''
+                CREATE TABLE IF NOT EXISTS categories (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    transaction_type_pattern TEXT,
+                    description_pattern TEXT,
+                    main_category TEXT,
+                    sub1 TEXT,
+                    sub2 TEXT,
+                    sub3 TEXT,
+                    notes TEXT
+                )
+            ''')
         print('Truncating existing category rules...')
         cursor.execute('DELETE FROM categories')
 

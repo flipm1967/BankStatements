@@ -11,8 +11,9 @@
 | .*                       | Cheque deposit                   | EXCLUDE       | Cheque          | Mum Carer             |                  | Exclude as it clouds things               |
 | XFER                     | 07.*                             | EXCLUDE       | Transfers       | Nationwide            |                  |                                           |
 | XFER                     | 07.*                             | EXCLUDE       | Transfers       | Nationwide            |                  |                                           |
-| XFER                     | NationwideMum                    | EXCLUDE       | Transfers       | Nationwide Mum Assets |                  |This was from Mum's Nationwide C/A .* ISA   |
-| CREDIT                   | MUMFORD EE                       | EXCLUDE       | Transfers       | Barclays Mum Assets   |                  |This was from Mum's Barclays C/A .* ISA     |
+| XFER                     | NationwideMum                    | EXCLUDE       | Transfers       | Nationwide Mum Assets |                  |This was from Mum's Nationwide C/A .* ISA  |
+| CREDIT                   | MUMFORD EE                       | EXCLUDE       | Transfers       | Barclays Mum Assets   |                  |This was from Mum's Barclays C/A .* ISA    |
+| Check                    | Credit 23 January 2026           | EXCLUDE       | Cheque          | Mum Carer             |                  |From mum's account by cheque               |
 | .*                       | PHILIP MUMFORD                   | EXCLUDE       | Transfers       | Nationwide            |                  |                                           |
 | .*                       | HIFML                            | SAVE          | Savings         | Halifax               |                  |                                           |
 | .*                       | ISA-CAR                          | SAVE          | Savings         | Car Savings           |                  |                                           |
@@ -31,7 +32,7 @@
 | .*                       | Shurgard                         | NEED          | Household       | Storage               |                  | Should try and get rid of some stuff here |
 | .*                       | VODAFONE                         | NEED          | Household       | Telephone & Broadband |                  |                                           |
 | .*                       | HMRC                             | NEED          | Household       | Tax Payment           |                  | Should exclude from analysis maybe?       |
-| .*                       | TV LICENCE                       | NEED          | Entertainment   | TV Licence            |                  |                                           |
+| .*                       | TV LICENCE                       | NEED          | Household       | TV Licence            |                  |                                           |
 | .*                       | TFL TRAVEL                       | NEED          | Travel work     | Tube                  |                  |                                           |
 | .*                       | SWRAILWAYSELFSERVE               | NEED          | Travel work     | Train                 |                  |                                           |
 | .*                       | SWRAILWAY TCK                    | NEED          | Travel work     | Train                 |                  |                                           |
@@ -44,6 +45,7 @@
 | .*                       | ALPHA BATTERIES                  | NEED          | Travel          | Car Repairs           |                  |                                           |
 | .*                       | FOSTER AND HEANES                | NEED          | Travel          | Car Repairs           |                  |                                           |
 | .*                       | ROADWHEEL                        | NEED          | Travel          | Car Repairs           |                  |                                           |
+| .*                       | Halfords                         | NEED          | Travel          | Car Repairs           |                  |                                           |
 | .*                       | DVLA                             | NEED          | Travel          | Car Tax               |                  |                                           |
 | .*                       | esure                            | NEED          | Travel          | Car Insurance         |                  |                                           |
 | .*                       | Hart District                    | NEED          | Travel          | Car Parks             |                  |                                           |
@@ -52,8 +54,13 @@
 | .*                       | Wiltshire Council                | NEED          | Travel          | Car Parks             |                  |                                           |
 | Contactless Payment      | ASHLEY CENTRE                    | NEED          | Travel          | Car Parks             |                  |                                           |
 | .*                       | RINGGO                           | NEED          | Travel          | Car Parks             |                  |                                           |
+| .*                       | EURO CAR PARKS                   | NEED          | Travel          | Car Parks             |                  |                                           |
+| .*                       | HOZAH PARKING                    | NEED          | Travel          | Car Parks             |                  |                                           |
 | .*                       | SILVESTER BROS                   | NEED          | Travel          | Bike repairs          |                  |                                           |
+| .*                       | LEE GRIFFITHS                    | NEED          | Travel          | Fiesta purchase       |                  |                                           |
+| .*                       | VCHECK                           | NEED          | Travel          | Fiesta history check  |                  |                                           |
 | .*                       | SAINSBURY.*MKT                   | NEED          | FOOD            | Sainsbury             |                  |                                           |
+| .*                       | SAINSBURYS SALISBURY GB          | NEED          | FOOD            | Sainsbury             |                  |                                           |
 | .*                       | WAITROSE                         | NEED          | FOOD            | Waitrose              |                  |                                           |
 | .*                       | WM MORRISONS                     | NEED          | FOOD            | Morrison              |                  |                                           |
 | .*                       | W M MORRISONS                    | NEED          | FOOD            | Morrison              |                  |                                           |
@@ -74,6 +81,7 @@
 | .*                       | CAFE BAR                         | WANT          | EATING OUT      | COFFEE                |                  |                                           |
 | .*                       | CAFE NERO                        | WANT          | EATING OUT      | COFFEE                |                  |                                           |
 | .*                       | CAFE RAILS                       | WANT          | EATING OUT      | COFFEE                |                  |                                           |
+| .*                       | CAFE DESTINO                     | WANT          | EATING OUT      | COFFEE                |                  |                                           |
 | .*                       | Wasabi_HighStreetKensi London GB | WANT          | EATING OUT      | LUNCH                 |                  |                                           |
 | .*                       | WASABI                           | WANT          | EATING OUT      | LUNCH                 |                  |                                           |
 | .*                       | WHOLE FOODS MARKET               | WANT          | EATING OUT      | LUNCH                 |                  |                                           |
@@ -99,6 +107,7 @@
 | .*                       | MARKS.*SPENCER                   | WANT          | EATING OUT      | CLOTHES               |                  |                                           |
 | .*                       | WATERMILL.ORG                    | WANT          | EATING OUT      | RESTAURANT            |                  |                                           |
 | .*                       | Wagamama                         | WANT          | EATING OUT      | RESTAURANT            |                  |                                           |
+| .*                       | Harvester                        | WANT          | EATING OUT      | RESTAURANT            |                  |                                           |
 | .*                       | WAGAMAMA                         | WANT          | EATING OUT      | RESTAURANT            |                  |                                           |
 | .*                       | WING STOP                        | WANT          | EATING OUT      | RESTAURANT            |                  |                                           |
 | .*                       | COSY CLUB                        | WANT          | EATING OUT      | RESTAURANT            |                  |                                           |
@@ -111,6 +120,8 @@
 | .*                       | ALENTO lOUNGE                    | WANT          | EATING OUT      | RESTAURANT            |                  |                                           |
 | .*                       | ZAAL                             | WANT          | EATING OUT      | RESTAURANT            |                  |                                           |
 | .*                       | HERON ON THE LAKE.*              | WANT          | EATING OUT      | RESTAURANT            |                  |                                           |
+| .*                       | LAS IGUANAS                      | WANT          | EATING OUT      | RESTAURANT            |                  |                                           |
+| .*                       | Pizza Hut                        | WANT          | EATING OUT      | RESTAURANT            |                  |                                           |
 | .*                       | WETHERSPOON                      | WANT          | EATING OUT      | PUB                   |                  |                                           |
 | .*                       | OATSHEAF                         | WANT          | EATING OUT      | PUB                   |                  |                                           |
 | .*                       | PARCEL YARD                      | WANT          | EATING OUT      | PUB                   |                  |                                           |
@@ -125,18 +136,22 @@
 | .*                       | CROOKHAM STREET SOCIAL           | WANT          | EATING OUT      | PUB                   |                  |                                           |
 | .*                       | FOX AND HOUNDS                   | WANT          | EATING OUT      | PUB                   |                  |                                           |
 | .*                       | BELL INN                         | WANT          | EATING OUT      | PUB                   |                  |                                           |
+| .*                       | Kosu Mosu                        | WANT          | EATING OUT      | PUB                   |                  |Sushi bar in fleet                         |
+| .*                       | ALLWYN                           | WANT          | Entertainment   | Lottery               |                  |                                           |
 | .*                       | APPLE.COM                        | WANT          | Entertainment   | Apple TV              |                  |                                           |
 | .*                       | Netflix                          | WANT          | Entertainment   | Netflix               |                  |                                           |
 | .*                       | NETFLIX                          | WANT          | Entertainment   | Netflix               |                  |                                           |
 | .*                       | Amazon Prime                     | WANT          | Entertainment   | Amazon Prime          |                  |                                           |
 | .*                       | Prime Video                      | WANT          | Entertainment   | Amazon Prime          |                  |                                           |
+| .*                       | YOUTUBE                          | WANT          | Entertainment   | Youtube premium       |                  | Family account                            |
 | .*                       | CINEWORLD                        | WANT          | Entertainment   | Cinema                |                  |                                           |
 | .*                       | Vue Cinemas                      | WANT          | Entertainment   | Cinema                |                  |                                           |
-| .*                       | ALLWYN                           | WANT          | Entertainment   | Lottery               |                  | This is my monthly lottery payment        |
+| .*                       | Vue Entertainment                | WANT          | Entertainment   | Cinema                |                  |                                           |
 | .*                       | Spotify                          | WANT          | Entertainment   | Spotify               |                  |                                           |
 | .*                       | Legoland                         | WANT          | Entertainment   | Legoland              |                  |                                           |
 | .*                       | The Lost Est                     | WANT          | Entertainment   | Theatre               |                  |                                           |
 | .*                       | LONDON THEATRE DIRECT            | WANT          | Entertainment   | Theatre               |                  |                                           |
+| .*                       | Haymarket.*Basingstoke           | WANT          | Entertainment   | Theatre               |                  |                                           |
 | .*                       | Tank Museum                      | WANT          | Entertainment   | Tank Museum           |                  |                                           |
 | .*                       | DORSET NECTAR                    | WANT          | Entertainment   | Camping & Festivals   |                  |                                           |
 | .*                       | TRUCK FESTIVAL                   | WANT          | Entertainment   | Camping & Festivals   |                  |                                           |
@@ -159,10 +174,12 @@
 | .*                       | WICKES                           | WANT          | Household       | DIY                   | Refurbishment    |                                           |
 | .*                       | PHILIP CARTER                    | WANT          | Household       | DIY                   | Refurbishment    |                                           |
 | .*                       | PAUL LETTS                       | WANT          | Household       | DIY                   | Refurbishment    |                                           |
+| .*                       | SHEEN ENGINEERING                | WANT          | Household       | DIY                   | Refurbishment    | Engineer for plans                        |
 | .*                       | SOLSTICE ROOFING.*               | WANT          | Household       | DIY                   | Refurbishment    | Mum's roof actually                       |
 | .*                       | WIZARD CLINICS                   | WANT          | Health          | Skin Tag              |                  |                                           |
 | .*                       | HOLLAND .* BARRETT               | WANT          | Health          | Vitamins & Minerals   |                  |                                           |
 | .*                       | BOOTS OPTICIANS                  | WANT          | Health          | Contact Lenses        |                  |                                           |
+| .*                       | GLASSES DIRECT                   | WANT          | Health          | Glasses               |                  |                                           |
 | .*                       | BOOTS REWARDSCHEME               | WANT          | Health          | Contact Lenses        |                  |                                           |
 | .*                       | BOOTS.*FLEET                     | WANT          | Health          | Toiletries            |                  |                                           |
 | .*                       | BOOTS.*BRIDGWATER                | WANT          | Health          | Toiletries            |                  |                                           |
@@ -176,6 +193,7 @@
 | .*                       | GLL                              | WANT          | Health          | Gym                   |                  |                                           |
 | .*                       | BETTER.ORG                       | WANT          | Health          | Gym                   |                  |                                           |
 | .*                       | DADDS N LADS                     | WANT          | Health          | Haircuts              |                  |                                           |
+| .*                       | Red Stripes Barbers              | WANT          | Health          | Haircuts              |                  |                                           |
 | .*                       | SALISBURY DISTRICT HOSP          | WANT          | Health          | Hospital park+food    |                  |                                           |
 | .*                       | SALISBURY NHS                    | WANT          | Health          | Hospital park+food    |                  |                                           |
 | .*                       | SAPPHIRE                         | WANT          | To Sapphire     | With Love             |                  |                                           |
