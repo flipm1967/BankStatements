@@ -130,18 +130,36 @@ def main():
     # import transactions CSV
     with open(csv_filename, newline='', encoding='utf-8') as csvfile:
         reader = csv.DictReader(csvfile)
+        # try to find a date-like column if it's not exactly 'Date'
+        fieldnames = reader.fieldnames or []
+        date_field = None
+        for f in fieldnames:
+            if f and 'date' in f.lower():
+                date_field = f
+                break
+        if not date_field:
+            date_field = 'Date'
+
+        inserted = 0
+        empty_dates = 0
         for row in reader:
+            date_val = (row.get(date_field) or '').strip()
+            if not date_val:
+                empty_dates += 1
             cursor.execute('''
                 INSERT INTO transactions (date, transaction_type, description, paid_out, paid_in, balance)
                 VALUES (?, ?, ?, ?, ?, ?)
             ''', (
-                row.get('Date') or row.get('date') or '',
-                row.get('Transaction type') or row.get('transaction_type') or '',
+                date_val,
+                row.get('Transaction type') or row.get('transaction_type') or row.get('Type') or '',
                 row.get('Description') or row.get('description') or '',
-                float(row.get('Paid out') or 0),
-                float(row.get('Paid in') or 0),
+                float(row.get('Paid out') or row.get('Debit') or 0),
+                float(row.get('Paid in') or row.get('Credit') or 0),
                 float(row.get('Balance') or 0)
             ))
+            inserted += 1
+
+        print(f"Imported {inserted} transactions ({empty_dates} with empty date field '{date_field}').")
 
     # load categories
     if categories_file:
